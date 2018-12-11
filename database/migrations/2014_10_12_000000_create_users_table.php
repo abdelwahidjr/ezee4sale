@@ -20,9 +20,9 @@ class CreateUsersTable extends Migration
             $table->string('email')->unique();
             $table->string('password');
             $table->string('phone');
-            $table->string('language')->default('ar');
-            $table->string('toggle_music')->default('on');
-            $table->string('balance')->default(0);
+            $table->enum('language', ['ar', 'en'])->default('ar');
+            $table->enum('toggle_music',  ['off', 'on'])->default('on');
+            $table->decimal('balance')->default(0);
             $table->rememberToken();
             $table->timestamps();
             $table->softDeletes();
