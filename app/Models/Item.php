@@ -17,11 +17,14 @@ class Item extends Model
             'phone',
             'category_id',
             'sub_category_id',
-            'views_count',
             'state',
             'order',
             'images_url',
             'appear_on_home',
+        ];
+    protected $guarded
+    = [
+            'views_count',
         ];
     protected $casts
         = [
