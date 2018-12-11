@@ -33,14 +33,6 @@ class User extends Authenticatable
     use HasApiTokens , Notifiable , HasRoles;
 
 
-    protected $casts
-        = [
-            'address'         => 'array' ,
-            'social_media'    => 'array' ,
-            'all_time_habits' => 'array' ,
-            'used_coupons'    => 'array' ,
-        ];
-
     protected $hidden
         = [
             'password' ,
