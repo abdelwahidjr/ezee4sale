@@ -40,14 +40,9 @@ class UserAuthController extends Controller
 
         $user->notify(new SignupActivate($user));
 
-        $sms     = new SMSController();
-        $message = "thanks for registration your activation code is:  " . $activation_token;
-        $result  = $sms->send($request->phone , $message);
-
         return response()->json([
             'status'  => 'Success' ,
             'message' => trans('auth.success_created') ,
-            'sms'     => $result ,
         ] , 201);
 
     }

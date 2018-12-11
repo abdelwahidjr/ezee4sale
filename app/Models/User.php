@@ -21,19 +21,13 @@ class User extends Authenticatable
             'email' ,
             'password' ,
             'phone' ,
-            'avatar' ,
-            'area' ,
-            'address' ,
-            'gender' ,
-            'birthday' ,
-            'free_credit' ,
-            'social_media' ,
-            'verification_code' ,
-            'city_id' ,
-            'all_time_habits' ,
-            'active' ,
-            'activation_token' ,
-            'used_coupons' ,
+            'language',
+            'toggle_music'
+        ];
+
+    protected $guarded
+        = [
+          'balance'
         ];
 
     use HasApiTokens , Notifiable , HasRoles;
