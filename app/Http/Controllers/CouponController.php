@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Http\Requests\CouponCreateRequest;
 
 use App\Http\Requests\CouponUpdateRequest;
+use App\Http\Requests\GenerateCouponsRequest;
 use App\Http\Requests\InputCodeRequest;
 use App\Http\Resources\ModelResource;
 
@@ -119,6 +120,24 @@ class CouponController extends Controller
             'status'        => 'coupon.successful',
             'data'          => 'User Balance: '. $user->balance ,
         ] , 200);
+    }
+
+
+    public function generateCoupons(GenerateCouponsRequest $request)
+    {
+        $coupons = [];
+        for ($i = 0; $i < $request->quantity; $i++ )
+        {
+            $coupon = new Coupon;
+            $coupon->fill([
+                'title' => $request->title,
+                'price' => $request->price,
+            ]);
+            $coupon->code = md5(uniqid());
+            $coupon->save();
+            $coupons[] = $coupon;
+        }
+        return new ModelResource($coupons);
     }
 
 }
