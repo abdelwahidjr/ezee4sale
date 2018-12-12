@@ -13,7 +13,7 @@ class Banner extends Model
             'phone' ,
             'whats_app' ,
             'email' ,
-            'image_url' ,
+            'image' ,
             'type' ,
             'appear_on_home'
         ];
@@ -21,6 +21,7 @@ class Banner extends Model
     protected $casts
         = [
             'categories' => 'array' ,
+            'sub_categories' => 'array'
         ];
 
 }

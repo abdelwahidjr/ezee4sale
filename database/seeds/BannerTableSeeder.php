@@ -25,7 +25,7 @@ class BannerTableSeeder extends Seeder
                     'phone'          => $faker->phoneNumber,
                     'whats_app'      => $faker->phoneNumber,
                     'email'          => $faker->email,
-                    'image_url'      => asset('images/placeholder.png') ,
+                    'image'      => asset('images/placeholder.png') ,
                     'categories'     => [],
                     'sub_categories' => [],
                     'appear_on_home' => $faker->boolean,
