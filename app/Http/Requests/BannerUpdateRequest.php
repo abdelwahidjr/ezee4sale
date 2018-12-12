@@ -4,9 +4,8 @@ namespace App\Http\Requests;
 
 use Illuminate\Foundation\Http\FormRequest;
 
-class BannerCreateRequest extends FormRequest
-{
-    public $type = ['ad' , 'market'];
+class BannerUpdateRequest extends FormRequest
+{public $type = ['ad' , 'market'];
     public function authorize()
     {
         return true;
@@ -25,10 +24,12 @@ class BannerCreateRequest extends FormRequest
             'email'             => 'required|email|max:150' ,
             'image'             => 'required|mimes:png,jpg,jpeg|max:1000',
             'type'              => 'required|in:' . implode(',' , $this->type) ,
-            'categories'        => 'required|array|min:1' ,
+            'categories'        => 'array' ,
+            'categories.*'        => 'exists:categories,id',
             'appear_on_home'    => 'boolean'
         ];
     }
+
     public function messages()
     {
         return [
@@ -36,4 +37,5 @@ class BannerCreateRequest extends FormRequest
 
         ];
     }
+
 }
