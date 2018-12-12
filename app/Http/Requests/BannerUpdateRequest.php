@@ -26,6 +26,8 @@ class BannerUpdateRequest extends FormRequest
             'type'              => 'required|in:' . implode(',' , $this->type) ,
             'categories'        => 'array' ,
             'categories.*'        => 'exists:categories,id',
+            'sub_categories'        => 'array' ,
+            'sub_categories.*'        => 'exists:sub_categories,id',
             'appear_on_home'    => 'boolean'
         ];
     }

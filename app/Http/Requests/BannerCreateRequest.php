@@ -25,7 +25,10 @@ class BannerCreateRequest extends FormRequest
             'email'             => 'required|email|max:150' ,
             'image'             => 'required|mimes:png,jpg,jpeg|max:1000',
             'type'              => 'required|in:' . implode(',' , $this->type) ,
-            'categories'        => 'required|array|min:1' ,
+            'categories'        => 'array' ,
+            'categories.*'        => 'exists:categories,id',
+            'sub_categories'        => 'array' ,
+            'sub_categories.*'        => 'exists:sub_categories,id',
             'appear_on_home'    => 'boolean'
         ];
     }

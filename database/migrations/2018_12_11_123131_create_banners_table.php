@@ -21,6 +21,7 @@ class CreateBannersTable extends Migration
             $table->string('image');
             $table->enum('type',['ad','market']);
             $table->text('categories')->nullable(); //array
+            $table->text('sub_categories')->nullable(); //array
             $table->boolean('appear_on_home')->default(false);
             $table->timestamps();
         });

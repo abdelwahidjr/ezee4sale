@@ -27,8 +27,9 @@ class BannerTableSeeder extends Seeder
                     'email'          => $faker->email,
                     'image_url'      => asset('images/placeholder.png') ,
                     'categories'     => [],
+                    'sub_categories' => [],
                     'appear_on_home' => $faker->boolean,
-                    'type' => $type ,
+                    'type'           => $type ,
                 ]);
             }
         }
