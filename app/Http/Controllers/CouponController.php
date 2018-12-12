@@ -5,9 +5,11 @@ namespace App\Http\Controllers;
 use App\Http\Requests\CouponCreateRequest;
 
 use App\Http\Requests\CouponUpdateRequest;
+use App\Http\Requests\InputCodeRequest;
 use App\Http\Resources\ModelResource;
 
 use App\Models\Coupon;
+use App\Models\User;
 use Hash;
 
 
@@ -90,6 +92,32 @@ class CouponController extends Controller
         return response()->json([
             'status'  => 'deleted' ,
             'message' => trans('main.deleted') ,
+        ] , 200);
+    }
+
+    public function inputCouponCode(InputCodeRequest $request)
+    {
+        $code = $request->code;
+        $user =  User::find($request->user_id);
+        $coupon = Coupon::where('code', $code)->first();
+
+        if ($coupon->user_id != null)
+        {
+            return response([
+                'status'        => 'coupon.failed',
+                'data'          => 'User Balance: '. $user->balance ,
+            ] , 200);
+        }
+
+        $user->balance += $coupon->price;
+        $user->save();
+
+        $coupon->user_id = $request->user_id;
+        $coupon->save();
+
+        return response([
+            'status'        => 'coupon.successful',
+            'data'          => 'User Balance: '. $user->balance ,
         ] , 200);
     }
 
