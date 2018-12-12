@@ -98,5 +98,9 @@ class User extends Authenticatable
         return $this->hasMany(Item::class);
     }
 
+    public function coupons()
+    {
+        return $this->hasMany(Coupon::class);
+    }
 
 }
