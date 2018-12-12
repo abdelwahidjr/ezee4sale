@@ -1,6 +1,6 @@
 <?php
 
-namespace App;
+namespace App\Models;
 
 use Illuminate\Database\Eloquent\Model;
 
@@ -31,4 +31,8 @@ class Item extends Model
             'images_url' => 'array' ,
         ];
 
+    public function user()
+    {
+        return $this->belongsTo(User::class);
+    }
 }

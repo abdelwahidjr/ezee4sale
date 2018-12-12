@@ -7,7 +7,7 @@ use App\Http\Requests\ItemCreateRequest;
 use App\Http\Requests\ItemUpdateRequest;
 use App\Http\Resources\ModelResource;
 
-use App\Item;
+use App\Models\Item;
 use Hash;
 
 
@@ -46,7 +46,7 @@ class ItemController extends Controller
 
     public function show($id)
     {
-        $item = Item::with('')->find($id);
+        $item = Item::with('user')->find($id);
         if ($item === null)
         {
             return response([

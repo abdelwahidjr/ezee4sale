@@ -21,14 +21,16 @@ class ItemCreateRequest extends FormRequest
         return [
             'title'              => 'required|string|max:150' ,
             'type'          => 'in:' . implode(',' , $this->type) ,
+            'user_id'       => 'required|exists:users,id',
             'whats_app'             => 'required|string|max:15' ,
             'place'             => 'required|max:150' ,
             'phone'             => 'required|string|max:15' ,
-            'category_id'        => 'required|exists:categories,id' ,
-            'sub_category_id'        => 'required|exists:sub_categories,id' ,
+//            'category_id'        => 'required|exists:categories,id' ,
+//            'sub_category_id'        => 'required|exists:sub_categories,id' ,
             'state'      => 'in:' . implode(',' , $this->state) ,
-            'order'             => 'required|number|max:15' ,
-            'images'        => 'required|array|min:1',
+            'order'             => 'number|max:15' ,
+            'image'        => 'required|array|min:1' ,
+            'image.*'      => 'required|mimes:png,jpg,jpeg|max:1000' ,
             'appear_on_home'             => 'boolean' ,
         ];
     }

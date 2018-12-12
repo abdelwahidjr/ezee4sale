@@ -8,8 +8,6 @@ use App\Http\Requests\UserCreateRequest;
 use App\Http\Requests\UserFindByMail;
 use App\Http\Requests\UserUpdateRequest;
 use App\Http\Resources\ModelResource;
-use App\Models\Friend;
-use App\Models\Outlet;
 use App\Models\User;
 use File;
 use Hash;
@@ -53,7 +51,7 @@ class UserController extends Controller
 
     public function show($id)
     {
-        $user = User::with('')->find($id);
+        $user = User::with('items')->find($id);
         if ($user === null)
         {
             return response([
@@ -63,8 +61,6 @@ class UserController extends Controller
 
         return response([
             'data'          => $user ,
-            'notifications' => $user->notification() ,
-            'friends'       => $user->friends() ,
         ] , 200);
 
     }

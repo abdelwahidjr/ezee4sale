@@ -3,15 +3,15 @@
 Route::group(['prefix' => 'item'] , function ()
 {
 
-    Route::get('/all' , 'UserController@all');
+    Route::get('/all' , 'ItemController@all');
 
-    Route::post('/' , 'UserController@store');
+    Route::post('/' , 'ItemController@store');
 
-    Route::get('/{id}' , 'UserController@show')->where('id' , '[0-9]+');
+    Route::get('/{id}' , 'ItemController@show')->where('id' , '[0-9]+');
 
-    Route::post('/{id}' , 'UserController@update')->where('id' , '[0-9]+');
+    Route::post('/{id}' , 'ItemController@update')->where('id' , '[0-9]+');
 
-    Route::delete('/{id}' , 'UserController@destroy')->where('id' , '[0-9]+');
+    Route::delete('/{id}' , 'ItemController@destroy')->where('id' , '[0-9]+');
 
 
 });

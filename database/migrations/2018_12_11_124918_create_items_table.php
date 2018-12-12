@@ -17,11 +17,12 @@ class CreateItemsTable extends Migration
             $table->increments('id');
             $table->string('title');
             $table->enum('type', ['ad', 'market']);
+            $table->unsignedBigInteger('user_id');
             $table->string('whats_app');
             $table->string('place');
             $table->string('phone');
-            $table->integer('category_id');
-            $table->integer('sub_category_id')->default(1);
+            $table->unsignedBigInteger('category_id');
+            $table->unsignedBigInteger('sub_category_id')->default(1);
             $table->integer('views_count')->default(0);
             $table->enum('state', ['pinned', 'featured', 'none'])->default('none');
             $table->integer('order')->default(0);
