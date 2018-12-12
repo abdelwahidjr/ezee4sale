@@ -8,6 +8,7 @@ use App\Http\Requests\ItemUpdateRequest;
 use App\Http\Resources\ModelResource;
 
 use App\Models\Item;
+use App\Models\User;
 use File;
 use Hash;
 use Storage;
@@ -131,6 +132,17 @@ class ItemController extends Controller
         ] , 200);
     }
 
+    public function userAds($id)
+    {
+        $user = User::find($id);
+        if ($user === null)
+        {
+            return response([
+                'message' => trans('main.null_entity') ,
+            ] , 422);
+        }
+        return new ModelResource($user->items()->where('type', 'ad')->paginate(config('main.JsonResultCount')));
+    }
 }
 
 
