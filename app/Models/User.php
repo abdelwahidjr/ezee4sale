@@ -21,31 +21,17 @@ class User extends Authenticatable
             'email' ,
             'password' ,
             'phone' ,
-            'avatar' ,
-            'area' ,
-            'address' ,
-            'gender' ,
-            'birthday' ,
-            'free_credit' ,
-            'social_media' ,
-            'verification_code' ,
-            'city_id' ,
-            'all_time_habits' ,
-            'active' ,
-            'activation_token' ,
-            'used_coupons' ,
+            'language',
+            'toggle_music'
+        ];
+
+    protected $guarded
+        = [
+          'balance'
         ];
 
     use HasApiTokens , Notifiable , HasRoles;
 
-
-    protected $casts
-        = [
-            'address'         => 'array' ,
-            'social_media'    => 'array' ,
-            'all_time_habits' => 'array' ,
-            'used_coupons'    => 'array' ,
-        ];
 
     protected $hidden
         = [
@@ -99,18 +85,6 @@ class User extends Authenticatable
 
     /*############################################################################################*/
 
-    public function city()
-    {
-        return $this->belongsTo(City::class);
-
-    }
-
-    public function employee()
-    {
-        return $this->hasOne(Employee::class);
-    }
-
-
     public function notification()
     {
         //select * from notifications where send_to regexp '[[:<:]]$id[[:>:]]';
@@ -119,66 +93,14 @@ class User extends Authenticatable
             ->orderBy('created_at' , 'desc')->get();
     }
 
-
-    public function order()
+    public function items()
     {
-        return $this->hasMany(Order::class);
+        return $this->hasMany(Item::class);
     }
 
-    public function review()
+    public function coupons()
     {
-        return $this->belongsTo(Review::class);
+        return $this->hasMany(Coupon::class);
     }
-
-
-    public function user_setting()
-    {
-        return $this->hasOne(UserSetting::class);
-    }
-
-    public function Habits()
-    {
-        return $this->hasMany(Habit::class);
-    }
-
-
-    public function sent_request()
-    {
-        return $this->hasMany(Friendship::class , 'sender_id');
-    }
-
-
-    public function received_request()
-    {
-        return $this->hasMany(Friendship::class , 'receiver_id');
-    }
-
-
-    public function friends()
-    {
-        $friends_id = [];
-        $friends    = Friend::where([
-            ['user_id' , '=' , $this->id] ,
-        ])->get();
-
-        foreach ($friends as $friend)
-        {
-            array_push($friends_id , $friend->friend_id);
-        }
-
-        return User::whereIn('id' , $friends_id)->get();
-    }
-
-    public function gift_cards()
-    {
-        return $this->hasMany(GiftCard::class);
-    }
-
-
-    public function chat_rooms()
-    {
-        return $this->belongsToMany(ChatRoom::class , 'chat_room_users')->withTimestamps();
-    }
-
 
 }

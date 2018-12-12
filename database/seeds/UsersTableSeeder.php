@@ -22,24 +22,11 @@ class UsersTableSeeder extends Seeder
             foreach (range(1 , 50) as $index)
             {
 
-                $int  = rand(1262055681 , 1262055681);
-                $date = date("Y-m-d" , $int);
-
                 User::create([
                     'name'              => $faker->name ,
                     'email'             => $faker->email ,
                     'password'          => Hash::make('secret') ,
                     'phone'             => $faker->phoneNumber ,
-                    'active'            => '1' ,
-                    'avatar'            => asset('images/placeholder.png') ,
-                    'area'              => $faker->word ,
-                    'address'           => [] ,
-                    'gender'            => 'male' ,
-                    'birthday'          => $date ,
-                    'free_credit'       => rand(10 , 1000) ,
-                    'social_media'      => [] ,
-                    'verification_code' => $faker->word ,
-                    'city_id'           => rand(1 , 50) ,
                 ]);
             }
         }
@@ -57,15 +44,6 @@ class UsersTableSeeder extends Seeder
             'email'             => 'admin@ecovve.com' ,
             'password'          => Hash::make('secret') ,
             'phone'             => $faker->phoneNumber ,
-            'avatar'            => asset('images/placeholder.png') ,
-            'area'              => $faker->word ,
-            'address'           => [] ,
-            'gender'            => 'male' ,
-            'birthday'          => $date ,
-            'free_credit'       => rand(10 , 1000) ,
-            'social_media'      => [] ,
-            'verification_code' => $faker->word ,
-            'city_id'           => rand(1 , 50) ,
         ]);
     }
 

@@ -20,19 +20,9 @@ class CreateUsersTable extends Migration
             $table->string('email')->unique();
             $table->string('password');
             $table->string('phone');
-            $table->string('avatar')->nullable();
-            $table->string('area')->nullable();
-            $table->string('address')->default('[]'); //array
-            $table->enum('gender' , ['male' , 'female']);
-            $table->string('birthday')->nullable();
-            $table->integer('free_credit')->default(0);
-            $table->text('social_media')->nullable(); //array
-            $table->string('verification_code')->nullable();
-            $table->boolean('active')->default(false);
-            $table->string('activation_token')->nullable();
-            $table->unsignedBigInteger('city_id')->nullable();
-            $table->string('all_time_habits')->default('[]');
-            $table->string('used_coupons')->default('[]');
+            $table->enum('language', ['ar', 'en'])->default('ar');
+            $table->enum('toggle_music',  ['off', 'on'])->default('on');
+            $table->decimal('balance')->default(0);
             $table->rememberToken();
             $table->timestamps();
             $table->softDeletes();
