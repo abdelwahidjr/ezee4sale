@@ -88,27 +88,25 @@ class ItemController extends Controller
             ] , 422);
         }
 
-        $item->update($request->all());
+        $item->fill($request->all());
 
-        if (isset( $request->image))
-        {
+        if (isset( $request->image)) {
             $image_arr = [];
 
-            foreach ($request->image as $k => $v)
-            {
+            foreach ($request->image as $k => $v) {
                 $extension = $v->getClientOriginalExtension();
-                $sha1      = sha1($v->getClientOriginalName());
-                $filename  = date('Ymdhis') . '-' . $sha1 . rand(100 , 100000);
+                $sha1 = sha1($v->getClientOriginalName());
+                $filename = date('Ymdhis') . '-' . $sha1 . rand(100, 100000);
 
-                Storage::disk('public')->put('images/item/' . $filename . '.' . $extension , File::get($v));
+                Storage::disk('public')->put('images/item/' . $filename . '.' . $extension, File::get($v));
 
                 $image_arr[$k] = 'storage/images/item/' . $filename . "." . $extension;
             }
 
             $item->images_url = $image_arr;
-
-            $item->save();
         }
+        $item->save();
+
 
 
         return new ModelResource($item);
