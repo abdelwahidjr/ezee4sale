@@ -21,7 +21,7 @@ class CouponsTableSeeder extends Seeder
                 Coupon::create([
                     'title' => $faker->name,
                     'price' => rand(1,1000),
-                    'code'  => uniqid(),
+                    'code'  => md5(uniqid()),
                     'user_id' => array_random([ null, rand(1, 50)]),
                 ]);
             }

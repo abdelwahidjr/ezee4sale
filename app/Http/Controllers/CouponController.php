@@ -38,7 +38,7 @@ class CouponController extends Controller
 
         $coupon = new Coupon;
         $coupon->fill($request->all());
-        $coupon->code = uniqid();
+        $coupon->code = md5(uniqid());
         $coupon->save();
 
         return new ModelResource($coupon);
