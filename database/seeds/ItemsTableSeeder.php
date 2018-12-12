@@ -14,6 +14,8 @@ class ItemsTableSeeder extends Seeder
     public function run()
     {
         $faker = Factory::create();
+        $catigories_ids = DB::table('categories')->pluck('id');
+        $subcatigories_ids = DB::table('sub_categories')->pluck('id');
         if (app()->environment() !== 'production' && App::runningInConsole()) {
             foreach (range(1, 50) as $index) {
 
@@ -26,6 +28,8 @@ class ItemsTableSeeder extends Seeder
                     'phone' => $faker->phoneNumber,
                     'category_id' => rand(1, 50),
                     'sub_category_id' => rand(1, 50),
+                    'category_id'   => $faker->randomElement( $catigories_ids),
+                    'sub_category_id'   => $faker->randomElement( $subcatigories_ids),
                     'views_count' => rand(1, 50),
                     'state' => array_random(['pinned', 'featured', 'none']),
                     'appear_on_home' => array_random([true, false]),

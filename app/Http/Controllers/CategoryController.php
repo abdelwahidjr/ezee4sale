@@ -18,6 +18,7 @@ class CategoryController extends Controller
     {
         return ModelResource::collection(Category::with('subCategories')->paginate(config('main.JsonResultCount')));
     }
+
     public function store(CategoryCreateRequest $request)
     {
         $category = new Category;

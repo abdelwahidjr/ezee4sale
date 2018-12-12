@@ -5,6 +5,9 @@ Route::group(['prefix' => 'item'] , function ()
 
     Route::get('/all' , 'ItemController@all');
 
+    Route::get('/{category}/{sub_category}' , 'ItemController@categoryItems');
+
+
     Route::post('/' , 'ItemController@store');
 
     Route::get('/{id}' , 'ItemController@show')->where('id' , '[0-9]+');
