@@ -1,5 +1,6 @@
 <?php
 
+use App\Models\SubCategory;
 use Illuminate\Database\Seeder;
 use Faker\Factory;
 
@@ -21,7 +22,7 @@ class SubCategoriesTableSeeder extends Seeder
                 $type = $type[array_rand($type)];
 
 
-                \App\SubCategory::create([
+                SubCategory::create([
                     'name' => $faker->name,
                     'ordering' => $faker->numberBetween(0, 5000),
                     'type' => $type,

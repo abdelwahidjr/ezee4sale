@@ -1,6 +1,6 @@
 <?php
 
-use App\Banner;
+use App\Models\Banner;
 use Faker\Factory;
 use Illuminate\Database\Seeder;
 

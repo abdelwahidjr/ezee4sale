@@ -2,10 +2,10 @@
 
 namespace App\Http\Controllers;
 
-use App\Banner;
 use App\Http\Requests\BannerCreateRequest;
 use App\Http\Requests\BannerUpdateRequest;
 use App\Http\Resources\ModelResource;
+use App\Models\Banner;
 use Illuminate\Http\Request;
 use File;
 use Storage;
