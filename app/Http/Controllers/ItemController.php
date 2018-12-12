@@ -8,7 +8,9 @@ use App\Http\Requests\ItemUpdateRequest;
 use App\Http\Resources\ModelResource;
 
 use App\Models\Item;
+use File;
 use Hash;
+use Storage;
 
 
 class ItemController extends Controller
@@ -36,6 +38,21 @@ class ItemController extends Controller
 
         $item = new Item;
         $item->fill($request->all());
+
+        $image_arr = [];
+
+        foreach ($request->image as $k => $v)
+        {
+            $extension = $v->getClientOriginalExtension();
+            $sha1      = sha1($v->getClientOriginalName());
+            $filename  = date('Ymdhis') . '-' . $sha1 . rand(100 , 100000);
+
+            Storage::disk('public')->put('images/item/' . $filename . '.' . $extension , File::get($v));
+
+            $image_arr[$k] = 'storage/images/item/' . $filename . "." . $extension;
+        }
+        $item->images_url = $image_arr;
+
         $item->save();
 
         return new ModelResource($item);
@@ -71,6 +88,28 @@ class ItemController extends Controller
         }
 
         $item->update($request->all());
+
+        if (isset( $request->image))
+        {
+            $image_arr = [];
+
+            foreach ($request->image as $k => $v)
+            {
+                $extension = $v->getClientOriginalExtension();
+                $sha1      = sha1($v->getClientOriginalName());
+                $filename  = date('Ymdhis') . '-' . $sha1 . rand(100 , 100000);
+
+                Storage::disk('public')->put('images/item/' . $filename . '.' . $extension , File::get($v));
+
+                $image_arr[$k] = 'storage/images/item/' . $filename . "." . $extension;
+            }
+
+            $item->images_url = $image_arr;
+
+            $item->save();
+        }
+
+
         return new ModelResource($item);
     }
 
