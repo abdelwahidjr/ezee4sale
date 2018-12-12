@@ -255,7 +255,7 @@
 								},
 								{
 									"key": "client_secret",
-									"value": "CBplE3D82yJXJ3fO8f5UGUhQY5YzDtMBr0jHf32T",
+									"value": "FEMEG3uyA4gl8VQ6rZHzu7JyXnG7YoJTJBXnEze4",
 									"type": "text"
 								},
 								{
@@ -756,6 +756,41 @@
 							"response": []
 						},
 						{
+							"name": "item - user_ads",
+							"request": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "Accept",
+										"value": "application/json"
+									},
+									{
+										"key": "Content-Type",
+										"value": "application/json"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": ""
+								},
+								"url": {
+									"raw": "{{domain}}/api/public/item/user_ads/1",
+									"host": [
+										"{{domain}}"
+									],
+									"path": [
+										"api",
+										"public",
+										"item",
+										"user_ads",
+										"1"
+									]
+								},
+								"description": "get user ads by user id"
+							},
+							"response": []
+						},
+						{
 							"name": "item - store",
 							"request": {
 								"method": "POST",
@@ -829,7 +864,8 @@
 										{
 											"key": "image[]",
 											"type": "file",
-											"src": ""
+											"src": "",
+											"disabled": true
 										}
 									]
 								},
@@ -916,8 +952,7 @@
 										{
 											"key": "image[]",
 											"type": "file",
-											"src": "",
-											"disabled": true
+											"src": ""
 										}
 									]
 								},
@@ -1108,6 +1143,103 @@
 							"response": []
 						},
 						{
+							"name": "coupon - generate coupons",
+							"request": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Accept",
+										"value": "application/json"
+									},
+									{
+										"key": "Content-Type",
+										"name": "Content-Type",
+										"type": "text",
+										"value": "application/x-www-form-urlencoded"
+									}
+								],
+								"body": {
+									"mode": "formdata",
+									"formdata": [
+										{
+											"key": "title",
+											"value": " coupon",
+											"type": "text"
+										},
+										{
+											"key": "price",
+											"value": "100",
+											"type": "text"
+										},
+										{
+											"key": "quantity",
+											"value": "10000",
+											"type": "text"
+										}
+									]
+								},
+								"url": {
+									"raw": "{{domain}}/api/public/coupon/generate_coupons",
+									"host": [
+										"{{domain}}"
+									],
+									"path": [
+										"api",
+										"public",
+										"coupon",
+										"generate_coupons"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "coupon - input user code",
+							"request": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Accept",
+										"value": "application/json"
+									},
+									{
+										"key": "Content-Type",
+										"name": "Content-Type",
+										"type": "text",
+										"value": "application/x-www-form-urlencoded"
+									}
+								],
+								"body": {
+									"mode": "formdata",
+									"formdata": [
+										{
+											"key": "code",
+											"value": "5c10df2b1174f",
+											"type": "text"
+										},
+										{
+											"key": "user_id",
+											"value": "1",
+											"type": "text"
+										}
+									]
+								},
+								"url": {
+									"raw": "{{domain}}/api/public/coupon/input_user_code",
+									"host": [
+										"{{domain}}"
+									],
+									"path": [
+										"api",
+										"public",
+										"coupon",
+										"input_user_code"
+									]
+								}
+							},
+							"response": []
+						},
+						{
 							"name": "coupon - update",
 							"request": {
 								"method": "POST",
@@ -1235,6 +1367,119 @@
 										"public",
 										"coupon",
 										"50"
+									]
+								}
+							},
+							"response": []
+						}
+					],
+					"_postman_isSubFolder": true
+				},
+				{
+					"name": "settings",
+					"item": [
+						{
+							"name": "settings - show",
+							"request": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "Accept",
+										"value": "application/json"
+									},
+									{
+										"key": "Content-Type",
+										"value": "application/json"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": ""
+								},
+								"url": {
+									"raw": "{{domain}}/api/public/settings",
+									"host": [
+										"{{domain}}"
+									],
+									"path": [
+										"api",
+										"public",
+										"settings"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "settings - update",
+							"request": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Accept",
+										"value": "application/json"
+									},
+									{
+										"key": "Content-Type",
+										"name": "Content-Type",
+										"value": "application/x-www-form-urlencoded",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "formdata",
+									"formdata": [
+										{
+											"key": "file[]",
+											"type": "file",
+											"src": ""
+										},
+										{
+											"key": "file[]",
+											"type": "file",
+											"src": ""
+										},
+										{
+											"key": "whats_app[]",
+											"value": "213123",
+											"type": "text"
+										},
+										{
+											"key": "whats_app[]",
+											"value": "2334556",
+											"type": "text"
+										},
+										{
+											"key": "phone[]",
+											"value": "2312323",
+											"type": "text"
+										},
+										{
+											"key": "phone[]",
+											"value": "5566",
+											"type": "text"
+										},
+										{
+											"key": "email[]",
+											"value": "kdsa@g.com",
+											"type": "text"
+										},
+										{
+											"key": "email[]",
+											"value": "ks@g.com",
+											"type": "text"
+										}
+									]
+								},
+								"url": {
+									"raw": "{{domain}}/api/public/settings",
+									"host": [
+										"{{domain}}"
+									],
+									"path": [
+										"api",
+										"public",
+										"settings"
 									]
 								}
 							},
