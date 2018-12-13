@@ -9,6 +9,7 @@ use App\Http\Requests\UserFindByMail;
 use App\Http\Requests\UserUpdateRequest;
 use App\Http\Resources\ModelResource;
 use App\Models\User;
+use App\Notifications\ItemNotification;
 use File;
 use Hash;
 use Redis;
@@ -121,6 +122,18 @@ class UserController extends Controller
             'status'  => 'Failed' ,
             'message' => trans('main.credentials') ,
         ] , 400);
+    }
+
+    public function getUserNotifications($id)
+    {
+        $user = User::find($id);
+        if ($user === null)
+        {
+            return response([
+                'message' => trans('main.null_entity') ,
+            ] , 422);
+        }
+        return new ModelResource($user->notifications);
     }
 
 }
