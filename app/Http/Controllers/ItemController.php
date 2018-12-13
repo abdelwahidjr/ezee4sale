@@ -35,7 +35,8 @@ class ItemController extends Controller
 
     public function categoryItems($category , $sub_category){
         return ModelResource::collection(Item::where('category_id',$category)
-            ->where('sub_category_id',$sub_category)->paginate(config('main.JsonResultCount')));
+            ->where('sub_category_id',$sub_category)->orderBy('state', 'ASC')
+            ->orderBy('order', 'DESC')->paginate(config('main.JsonResultCount')));
     }
 
 
