@@ -17,27 +17,27 @@ class User extends Authenticatable
 
     protected $fillable
         = [
-            'name' ,
-            'email' ,
-            'password' ,
-            'phone' ,
+            'name',
+            'email',
+            'password',
+            'phone',
             'language',
             'toggle_music'
         ];
 
     protected $guarded
         = [
-          'balance'
+            'balance'
         ];
 
-    use HasApiTokens , Notifiable , HasRoles;
+    use HasApiTokens, Notifiable, HasRoles;
 
 
     protected $hidden
         = [
-            'password' ,
-            'remember_token' ,
-            'activation_token' ,
+            'password',
+            'remember_token',
+            'activation_token',
         ];
 
 
@@ -46,20 +46,17 @@ class User extends Authenticatable
     //   $user->AssignRole('admin'); // guard will be default
     //   $user->AssignRole('admin', 'api'); // explcitly setting the guard name
 
-    public function AssignRole($roles , string $guard = null)
+    public function AssignRole($roles, string $guard = null)
     {
-        if ($guard)
-        {
+        if ($guard) {
             $roles = is_string($roles) ? [$roles] : $roles;
             $guard = $guard ?: $this->getDefaultGuardName();
 
             $roles = collect($roles)->flatten()->map(function ($role) use (
                 $guard
-            )
-            {
-                return $this->GetStoredRole($role , $guard);
-            })->each(function ($role)
-            {
+            ) {
+                return $this->GetStoredRole($role, $guard);
+            })->each(function ($role) {
                 $this->ensureModelSharesGuard($role);
             })->all();
 
@@ -73,11 +70,10 @@ class User extends Authenticatable
 
     }
 
-    protected function GetStoredRole($role , string $guard) : Role
+    protected function GetStoredRole($role, string $guard): Role
     {
-        if (is_string($role))
-        {
-            return app(Role::class)->findByName($role , $guard);
+        if (is_string($role)) {
+            return app(Role::class)->findByName($role, $guard);
         }
 
         return $role;
@@ -85,12 +81,18 @@ class User extends Authenticatable
 
     /*############################################################################################*/
 
+    public function balanceSubtract($amount)
+    {
+        $this->balance -= $amount;
+        $this->save();
+    }
+
     public function notification()
     {
         //select * from notifications where send_to regexp '[[:<:]]$id[[:>:]]';
 
-        return Notification::where('send_to' , 'regexp' , '[[:<:]]' . $this->id . '[[:>:]]')
-            ->orderBy('created_at' , 'desc')->get();
+        return Notification::where('send_to', 'regexp', '[[:<:]]' . $this->id . '[[:>:]]')
+            ->orderBy('created_at', 'desc')->get();
     }
 
     public function items()

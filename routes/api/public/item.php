@@ -5,10 +5,11 @@ Route::group(['prefix' => 'item'] , function ()
 
     Route::get('/all' , 'ItemController@all');
 
-    Route::get('/{category}/{sub_category}' , 'ItemController@categoryItems');
+    Route::get('/category/{category}/sub_category/{sub_category}' , 'ItemController@categoryItems');
 
 
     Route::post('/' , 'ItemController@store');
+    Route::post('/reshare' , 'ItemController@reshareItem');
 
     Route::get('/{id}' , 'ItemController@show')->where('id' , '[0-9]+');
 
