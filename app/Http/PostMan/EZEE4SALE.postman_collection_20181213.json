@@ -255,7 +255,7 @@
 								},
 								{
 									"key": "client_secret",
-									"value": "MVH2Iq00Wm2fTvmLZJ8kqQLtjreTQUrQDx74OFy5",
+									"value": "AARJWG6xStz43jIG1MDGRJKOOb4qEvY8MyflXANG",
 									"type": "text"
 								},
 								{
@@ -265,7 +265,7 @@
 								},
 								{
 									"key": "username",
-									"value": "admin@ecovve.com",
+									"value": "admin@ezee4sale .com",
 									"type": "text"
 								},
 								{
@@ -459,7 +459,53 @@
 		},
 		{
 			"name": "Admin",
-			"item": []
+			"item": [
+				{
+					"name": "update commission",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "user_ids[]",
+									"value": "1",
+									"type": "text"
+								},
+								{
+									"key": "user_ids[]",
+									"value": "2",
+									"type": "text"
+								},
+								{
+									"key": "item_id",
+									"value": "1",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "{{domain}}/api/admin/administration/send_users_notifications",
+							"host": [
+								"{{domain}}"
+							],
+							"path": [
+								"api",
+								"admin",
+								"administration",
+								"send_users_notifications"
+							]
+						}
+					},
+					"response": []
+				}
+			]
 		},
 		{
 			"name": "Public",
@@ -600,7 +646,7 @@
 									"raw": ""
 								},
 								"url": {
-									"raw": "{{domain}}/api/public/user/3",
+									"raw": "{{domain}}/api/public/user/1",
 									"host": [
 										"{{domain}}"
 									],
@@ -608,7 +654,61 @@
 										"api",
 										"public",
 										"user",
-										"3"
+										"1"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "user - notifications",
+							"request": {
+								"auth": {
+									"type": "oauth2",
+									"oauth2": [
+										{
+											"key": "accessToken",
+											"value": "{{token}}",
+											"type": "string"
+										},
+										{
+											"key": "tokenType",
+											"value": "Bearer",
+											"type": "string"
+										},
+										{
+											"key": "addTokenTo",
+											"value": "header",
+											"type": "string"
+										}
+									]
+								},
+								"method": "GET",
+								"header": [
+									{
+										"key": "Accept",
+										"value": "application/json"
+									},
+									{
+										"key": "Content-Type",
+										"value": "application/json"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": ""
+								},
+								"url": {
+									"raw": "{{domain}}/api/public/user/1/notifications",
+									"host": [
+										"{{domain}}"
+									],
+									"path": [
+										"api",
+										"public",
+										"user",
+										"1",
+										"notifications"
 									]
 								}
 							},
@@ -682,6 +782,52 @@
 										"public",
 										"user",
 										"3"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "user - mark notification as read",
+							"request": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Accept",
+										"value": "application/json"
+									},
+									{
+										"key": "Content-Type",
+										"name": "Content-Type",
+										"type": "text",
+										"value": "application/x-www-form-urlencoded"
+									}
+								],
+								"body": {
+									"mode": "formdata",
+									"formdata": [
+										{
+											"key": "user_id",
+											"value": "1",
+											"type": "text"
+										},
+										{
+											"key": "notification_id",
+											"value": "12eea025-c9d2-4e03-8c20-51b1c2a338fb",
+											"type": "text"
+										}
+									]
+								},
+								"url": {
+									"raw": "{{domain}}/api/public/user/mark_notification_as_read",
+									"host": [
+										"{{domain}}"
+									],
+									"path": [
+										"api",
+										"public",
+										"user",
+										"mark_notification_as_read"
 									]
 								}
 							},
