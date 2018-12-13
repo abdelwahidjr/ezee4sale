@@ -26,7 +26,7 @@ class CategoriesTableSeeder extends Seeder
                     'name'          => $faker->name,
                     'price'         =>$faker->numberBetween(0,5000),
                     'ordering'      =>$faker->numberBetween(0,5000),
-                    'adding_time'   =>$faker->numberBetween(0,5000),
+                    'deprecated_time'   =>$faker->numberBetween(0,5000),
                     'type'          => $type ,
 
                 ]);

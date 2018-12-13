@@ -29,7 +29,7 @@ public $type = ['ad' , 'market'];
             'name'             => 'required|string|max:350',
             'price'         => 'required|numeric',
             'ordering'             => 'required|numeric',
-            'adding_time'             => 'required|numeric',
+            'deprecated_time'             => 'required|numeric',
             'type'              => 'required|in:' . implode(',' , $this->type) ,
 
         ];

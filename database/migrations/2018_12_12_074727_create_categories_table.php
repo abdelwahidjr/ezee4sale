@@ -19,7 +19,7 @@ class CreateCategoriesTable extends Migration
             $table->enum('type',['ad','market']);
             $table->double('price');
             $table->integer('ordering');
-            $table->integer('adding_time');
+            $table->integer('deprecated_time');# number of days
             $table->timestamps();
         });
     }
