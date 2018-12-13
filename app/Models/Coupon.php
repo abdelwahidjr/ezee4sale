@@ -12,14 +12,6 @@ class Coupon extends Model
             'title' ,
             'price' ,
         ];
-    protected $guarded
-    = [
-            'code',
-            'user_id' ,
-        ];
-    protected $casts
-        = [
-        ];
 
     public function user()
     {

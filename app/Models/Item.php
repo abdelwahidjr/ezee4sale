@@ -22,10 +22,7 @@ class Item extends Model
             'images_url',
             'appear_on_home',
         ];
-    protected $guarded
-    = [
-            'views_count',
-        ];
+
     protected $casts
         = [
             'images_url' => 'array' ,

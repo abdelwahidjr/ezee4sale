@@ -25,11 +25,6 @@ class User extends Authenticatable
             'toggle_music'
         ];
 
-    protected $guarded
-        = [
-          'balance'
-        ];
-
     use HasApiTokens , Notifiable , HasRoles;
 
 
