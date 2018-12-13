@@ -16,6 +16,7 @@ class CreateSettingsTable extends Migration
         Schema::create('settings', function (Blueprint $table) {
             $table->increments('id');
             $table->string('audio_file')->default('[]');
+            $table->enum('audio_file_state', ['on', 'off'])->default('off');
             $table->string('whats_app')->default('[]');
             $table->string('phone')->default('[]');
             $table->string('email')->default('[]');

@@ -7,7 +7,7 @@ use Illuminate\Foundation\Http\FormRequest;
 class SettingsUpdateRequest extends FormRequest
 {
 
-
+    public $audio_state = ['on', 'off'];
 
     public function authorize()
     {
@@ -18,6 +18,7 @@ class SettingsUpdateRequest extends FormRequest
     {
         return [
             'file'              => 'array' , // TODO add validation
+            'audio_file_state'              => 'in:' . implode(',' , $this->audio_state) ,
             'whats_app'          => 'array' ,
             'whats_app.*'          => 'string' ,
             'phone'          => 'array' ,
@@ -26,5 +27,10 @@ class SettingsUpdateRequest extends FormRequest
             'email.*'          => 'email|string' ,
         ];
     }
-
+    public function messages()
+    {
+        return [
+            "audio_file_state.in" => "available state ". implode(',' , $this->audio_state) ,
+        ];
+    }
 }

@@ -10,6 +10,7 @@ class Settings extends Model
     protected $fillable
         = [
             'audio_file' ,
+            'audio_file_state',
             'whats_app' ,
             'phone' ,
             'email' ,
