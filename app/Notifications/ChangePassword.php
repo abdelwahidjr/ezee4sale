@@ -43,7 +43,7 @@ class ChangePassword extends Notification
         return (new MailMessage)
                     ->line('Hi Sir.')
                     ->line('Your Password Has Been Changed')
-                    ->line('Thank you for using Ecovve');
+                    ->line('Thank you for using Ezee4sale');
     }
 
     /**

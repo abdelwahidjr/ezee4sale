@@ -41,7 +41,7 @@ class UsersTableSeeder extends Seeder
 
         User::create([
             'name'              => 'Admin' ,
-            'email'             => 'admin@ecovve.com' ,
+            'email'             => 'admin@ezee4sale.com' ,
             'password'          => Hash::make('secret') ,
             'phone'             => $faker->phoneNumber ,
         ]);
