@@ -9,10 +9,10 @@ class Item extends Model
     //
     protected $fillable
         = [
-            'title' ,
-            'type' ,
+            'title',
+            'type',
             'user_id',
-            'whats_app' ,
+            'whats_app',
             'place',
             'phone',
             'category_id',
@@ -23,22 +23,32 @@ class Item extends Model
             'appear_on_home',
         ];
     protected $guarded
-    = [
-            'views_count','due_date'
+        = [
+            'views_count', 'due_date'
         ];
     protected $casts
         = [
-            'images_url' => 'array' ,
+            'images_url' => 'array',
         ];
+
+    public function viewed()
+    {
+        $this->views_count += 1;
+        $this->save();
+    }
 
     public function user()
     {
         return $this->belongsTo(User::class);
     }
-    public function category(){
+
+    public function category()
+    {
         return $this->belongsTo(Category::class);
     }
-    public function subcategory(){
+
+    public function subcategory()
+    {
         return $this->belongsTo(SubCategory::class);
     }
 }

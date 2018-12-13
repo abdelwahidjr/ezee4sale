@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Http\Requests\ItemCreateRequest;
 
 use App\Http\Requests\ItemUpdateRequest;
+use App\Http\Requests\ItemViewsRequest;
 use App\Http\Requests\ReShareItemRequest;
 use App\Http\Resources\ModelResource;
 
@@ -112,6 +113,12 @@ class ItemController extends Controller
         return new ModelResource($item);
     }
 
+    public function viewed(ItemViewsRequest $request)
+    {
+        $item = Item::find($request->input('item_id'));
+        $item->viewed();
+        return new ModelResource($item);
+    }
 
     public function show($id)
     {
