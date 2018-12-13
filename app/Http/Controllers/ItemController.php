@@ -7,8 +7,10 @@ use App\Http\Requests\ItemCreateRequest;
 use App\Http\Requests\ItemUpdateRequest;
 use App\Http\Resources\ModelResource;
 
+use App\Models\Category;
 use App\Models\Item;
 use App\Models\User;
+use Carbon\Carbon;
 use File;
 use Hash;
 use Storage;
@@ -35,8 +37,9 @@ class ItemController extends Controller
 
     public function categoryItems($category , $sub_category){
         return ModelResource::collection(Item::where('category_id',$category)
-            ->where('sub_category_id',$sub_category)->orderBy('state', 'ASC')
-            ->orderBy('order', 'DESC')->paginate(config('main.JsonResultCount')));
+            ->where('sub_category_id',$sub_category)
+            ->where('due_date','>',Carbon::now()->format('Y-m-d'))
+            ->orderBy('state', 'ASC')->orderBy('order', 'DESC')->paginate(config('main.JsonResultCount')));
     }
 
 
@@ -59,7 +62,11 @@ class ItemController extends Controller
             $image_arr[$k] = 'storage/images/item/' . $filename . "." . $extension;
         }
         $item->images_url = $image_arr;
-
+        $category = Category::find($item->category_id);
+        $mydate = Carbon::now()->format('d-m-Y');
+        $daysTosum =  $category->deprecated_time;
+        $due_date =  date('Y-m-d', strtotime($mydate.' + '.$daysTosum.' days'));
+        $item->due_date = $due_date;
         $item->save();
 
         return new ModelResource($item);

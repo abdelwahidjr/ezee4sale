@@ -24,7 +24,7 @@ class Item extends Model
         ];
     protected $guarded
     = [
-            'views_count',
+            'views_count','due_date'
         ];
     protected $casts
         = [

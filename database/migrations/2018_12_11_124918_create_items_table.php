@@ -28,6 +28,7 @@ class CreateItemsTable extends Migration
             $table->integer('order')->default(0);
             $table->string('images_url')->default('[]');
             $table->boolean('appear_on_home')->default(false);
+            $table->date('due_date');
             $table->timestamps();
         });
     }

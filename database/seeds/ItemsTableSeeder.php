@@ -27,6 +27,7 @@ class ItemsTableSeeder extends Seeder
                     'place' => $faker->address,
                     'phone' => $faker->phoneNumber,
                     'category_id' => rand(1, 50),
+                    'due_date'  => $faker->dateTimeBetween('yesterday' , '+10 day'),
                     'sub_category_id' => rand(1, 50),
                     'category_id'   => $faker->randomElement( $catigories_ids),
                     'sub_category_id'   => $faker->randomElement( $subcatigories_ids),
