@@ -26,6 +26,7 @@ class Item extends Model
         = [
             'views_count', 'due_date'
         ];
+
     protected $casts
         = [
             'images_url' => 'array',

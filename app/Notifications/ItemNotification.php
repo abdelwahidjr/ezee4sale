@@ -7,18 +7,19 @@ use Illuminate\Notifications\Notification;
 use Illuminate\Contracts\Queue\ShouldQueue;
 use Illuminate\Notifications\Messages\MailMessage;
 
-class ChangePassword extends Notification
+class ItemNotification extends Notification
 {
     use Queueable;
-
+    private $item_id;
     /**
      * Create a new notification instance.
      *
      * @return void
      */
-    public function __construct()
+    public function __construct($item_id)
     {
         //
+        $this->item_id = $item_id;
     }
 
     /**
@@ -29,22 +30,9 @@ class ChangePassword extends Notification
      */
     public function via($notifiable)
     {
-        return ['mail'];
+        return ['database'];
     }
 
-    /**
-     * Get the mail representation of the notification.
-     *
-     * @param  mixed  $notifiable
-     * @return \Illuminate\Notifications\Messages\MailMessage
-     */
-    public function toMail($notifiable)
-    {
-        return (new MailMessage)
-                    ->line('Hi Sir.')
-                    ->line('Your Password Has Been Changed')
-                    ->line('Thank you for using Ezee4sale');
-    }
 
     /**
      * Get the array representation of the notification.
@@ -56,6 +44,7 @@ class ChangePassword extends Notification
     {
         return [
             //
+                'item_id' => $this->item_id
         ];
     }
 }
