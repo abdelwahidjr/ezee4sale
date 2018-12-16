@@ -34,6 +34,12 @@ class SettingsController extends Controller
     public function update(SettingsUpdateRequest $request)
     {
         $settings = Settings::first();
+        if ($settings === null)
+        {
+            return response([
+                'message' => trans('main.null_entity') ,
+            ] , 422);
+        }
         $settings->fill($request->all());
         if (isset( $request->file))
         {
