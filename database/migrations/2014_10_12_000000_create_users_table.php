@@ -23,6 +23,8 @@ class CreateUsersTable extends Migration
             $table->enum('language', ['ar', 'en'])->default('ar');
             $table->enum('toggle_music',  ['off', 'on'])->default('on');
             $table->decimal('balance')->default(0);
+            $table->string('activation_token')->nullable();
+            $table->boolean('active')->default(false);
             $table->rememberToken();
             $table->timestamps();
             $table->softDeletes();

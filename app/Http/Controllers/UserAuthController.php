@@ -177,14 +177,14 @@ class UserAuthController extends Controller
             $user->password = Hash::make($request->input('password'));
             $user->save();
 
-            $sms     = new SMSController();
-            $message = "Your Password has been changed.";
-            $result  = $sms->send($user->phone , $message);
-            $result  = $result->getData();
-            if ($result->Result == 'false')
-            {
+//            $sms     = new SMSController();
+//            $message = "Your Password has been changed.";
+//            $result  = $sms->send($user->phone , $message);
+//            $result  = $result->getData();
+//            if ($result->Result == 'false')
+//            {
                 $user->notify(new ChangePassword());
-            }
+        //    }
 
             return response([
                 'status'  => 'Success' ,

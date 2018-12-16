@@ -9,8 +9,8 @@ class Coupon extends Model
     //
     protected $fillable
         = [
-            'title' ,
-            'price' ,
+            'title',
+            'price',
         ];
 
     public function user()
