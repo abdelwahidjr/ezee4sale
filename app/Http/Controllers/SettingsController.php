@@ -30,28 +30,22 @@ class SettingsController extends Controller
     }
 
 
-
     public function update(SettingsUpdateRequest $request)
     {
         $settings = Settings::first();
-        if ($settings === null)
-        {
-            return response([
-                'message' => trans('main.null_entity') ,
-            ] , 422);
+        if ($settings === null) {
+           $settings = new Settings();
         }
         $settings->fill($request->all());
-        if (isset( $request->file))
-        {
+        if (isset($request->file)) {
             $audio_array = [];
 
-            foreach ($request->file as $k => $v)
-            {
+            foreach ($request->file as $k => $v) {
                 $extension = $v->getClientOriginalExtension();
-                $sha1      = sha1($v->getClientOriginalName());
-                $filename  = date('Ymdhis') . '-' . $sha1 . rand(100 , 100000);
+                $sha1 = sha1($v->getClientOriginalName());
+                $filename = date('Ymdhis') . '-' . $sha1 . rand(100, 100000);
 
-                Storage::disk('public')->put('audio/item/' . $filename . '.' . $extension , File::get($v));
+                Storage::disk('public')->put('audio/item/' . $filename . '.' . $extension, File::get($v));
 
                 $audio_array[$k] = 'storage/audio/item/' . $filename . "." . $extension;
             }
