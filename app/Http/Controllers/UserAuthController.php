@@ -117,7 +117,7 @@ class UserAuthController extends Controller
             return response()->json([
                 'status'  => 'Failed' ,
                 'message' => trans('auth.failed') ,
-            ] , 400);
+            ] , 401);
         }
 
         $user        = $request->user();

@@ -23,10 +23,11 @@ class UsersTableSeeder extends Seeder
             {
 
                 User::create([
-                    'name'              => $faker->name ,
-                    'email'             => $faker->email ,
-                    'password'          => Hash::make('secret') ,
-                    'phone'             => $faker->phoneNumber ,
+                    'name'     => $faker->name ,
+                    'email'    => $faker->email ,
+                    'password' => Hash::make('secret') ,
+                    'phone'    => $faker->phoneNumber ,
+                    'active'   => '1' ,
                 ]);
             }
         }
@@ -40,10 +41,12 @@ class UsersTableSeeder extends Seeder
         $date = date("Y-m-d" , $int);
 
         User::create([
-            'name'              => 'Admin' ,
-            'email'             => 'admin@ezee4sale.com' ,
-            'password'          => Hash::make('secret') ,
-            'phone'             => $faker->phoneNumber ,
+            'name'     => 'Admin' ,
+            'email'    => 'admin@ezee4sale.com' ,
+            'password' => Hash::make('secret') ,
+            'phone'    => $faker->phoneNumber ,
+            'active'   => '1' ,
+
         ]);
     }
 
