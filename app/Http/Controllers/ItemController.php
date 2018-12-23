@@ -44,8 +44,23 @@ class ItemController extends Controller
             ->where('due_date', '>', Carbon::now()->format('Y-m-d'))
             ->orderBy('state', 'ASC')->orderBy('order', 'DESC')->paginate(config('main.JsonResultCount')));
     }
+    public function categoryAdItems($category, $sub_category)
+    {
+        return ModelResource::collection(Item::where('category_id', $category)
+            ->where('sub_category_id', $sub_category)
+            ->where('type','ad')
+            ->where('due_date', '>', Carbon::now()->format('Y-m-d'))
+            ->orderBy('state', 'ASC')->orderBy('order', 'DESC')->paginate(config('main.JsonResultCount')));
+    }
 
-
+    public function categoryMarketItems($category, $sub_category)
+    {
+        return ModelResource::collection(Item::where('category_id', $category)
+            ->where('sub_category_id', $sub_category)
+            ->where('type','market')
+            ->where('due_date', '>', Carbon::now()->format('Y-m-d'))
+            ->orderBy('state', 'ASC')->orderBy('order', 'DESC')->paginate(config('main.JsonResultCount')));
+    }
     public function store(ItemCreateRequest $request)
     {
 
