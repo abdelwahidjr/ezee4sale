@@ -6,6 +6,10 @@ Route::group(['prefix' => 'item'], function () {
 
     Route::get('/category/{category}/sub_category/{sub_category}', 'ItemController@categoryItems');
 
+    Route::get('/ad/category/{category}/sub_category/{sub_category}', 'ItemController@categoryAdItems');
+
+    Route::get('/market/category/{category}/sub_category/{sub_category}', 'ItemController@categoryMarketItems');
+
     Route::post('/views', 'ItemController@viewed');
 
     Route::post('/', 'ItemController@store');
