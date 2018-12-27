@@ -7,6 +7,8 @@ use App\Http\Requests\BannerUpdateRequest;
 use App\Http\Resources\ModelResource;
 use App\Models\Banner;
 use Illuminate\Http\Request;
+use Intervention\Image\ImageManagerStatic as Image;
+
 use File;
 use Storage;
 
@@ -27,7 +29,13 @@ class BannerController extends Controller
         $extension = $request->image->getClientOriginalExtension();
         $sha1      = sha1($request->image->getClientOriginalName());
         $filename  = date('Ymdhis') . '-' . $sha1 . rand(100 , 100000);
-        Storage::disk('public')->put('images/Banners/' . $filename . '.' . $extension , File::get($request->image));
+        if($request->has('image_size_w') and $request->has('image_size_h'))
+            $image = Image::make($request->image)
+                ->resize($request->input('image_size_w'), $request->input('image_size_h'))
+                ->encode($extension);
+        else
+            $image = File::get($request->image);
+        Storage::disk('public')->put('images/Banners/' . $filename . '.' . $extension , $image);
         $banner->fill($request->all());
         $banner->image = 'storage/images/Banners/' . $filename . "." . $extension;
         $banner->categories = $request->input('categories');
@@ -60,7 +68,13 @@ class BannerController extends Controller
         $extension = $request->image->getClientOriginalExtension();
         $sha1      = sha1($request->image->getClientOriginalName());
         $filename  = date('Ymdhis') . '-' . $sha1 . rand(100 , 100000);
-        Storage::disk('public')->put('images/Banners/' . $filename . '.' . $extension , File::get($request->image));
+        if($request->has('image_size_w') and $request->has('image_size_h'))
+            $image = Image::make($request->image)
+                ->resize($request->input('image_size_w'), $request->input('image_size_h'))
+                ->encode($extension);
+        else
+            $image = File::get($request->image);
+        Storage::disk('public')->put('images/Banners/' . $filename . '.' . $extension , $image);
         $banner->update($request->all());
         $banner->categories = $request->input('categories');
         $banner->image = 'storage/images/Banners/' . $filename . "." . $extension;

@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Http\Requests\ItemCreateRequest;
+use Intervention\Image\ImageManagerStatic as Image;
 
 use App\Http\Requests\ItemUpdateRequest;
 use App\Http\Requests\ItemViewsRequest;
@@ -80,8 +81,13 @@ class ItemController extends Controller
             $extension = $v->getClientOriginalExtension();
             $sha1 = sha1($v->getClientOriginalName());
             $filename = date('Ymdhis') . '-' . $sha1 . rand(100, 100000);
-
-            Storage::disk('public')->put('images/item/' . $filename . '.' . $extension, File::get($v));
+            if($request->has('image_size_w') and $request->has('image_size_h'))
+            $image = Image::make($v)
+                ->resize($request->input('image_size_w'), $request->input('image_size_h'))
+                ->encode($extension);
+            else
+            $image = File::get($v);
+            Storage::disk('public')->put('images/item/' . $filename . '.' . $extension, $image);
 
             $image_arr[$k] = 'storage/images/item/' . $filename . "." . $extension;
         }
@@ -169,7 +175,13 @@ class ItemController extends Controller
                 $sha1 = sha1($v->getClientOriginalName());
                 $filename = date('Ymdhis') . '-' . $sha1 . rand(100, 100000);
 
-                Storage::disk('public')->put('images/item/' . $filename . '.' . $extension, File::get($v));
+                if($request->has('image_size_w') and $request->has('image_size_h'))
+                    $image = Image::make($v)
+                        ->resize($request->input('image_size_w'), $request->input('image_size_h'))
+                        ->encode($extension);
+                else
+                    $image = File::get($v);
+                Storage::disk('public')->put('images/item/' . $filename . '.' . $extension, $image);
 
                 $image_arr[$k] = 'storage/images/item/' . $filename . "." . $extension;
             }

@@ -146,6 +146,7 @@ return [
         Illuminate\Translation\TranslationServiceProvider::class ,
         Illuminate\Validation\ValidationServiceProvider::class ,
         Illuminate\View\ViewServiceProvider::class ,
+        Intervention\Image\ImageServiceProvider::class ,
 
         /*
          * Package Service Providers...
@@ -220,6 +221,8 @@ return [
         'CSVReport'   => Jimmyjs\ReportGenerator\Facades\CSVReportFacade::class ,
         'PDF'         => Barryvdh\DomPDF\Facade::class ,
         'Helper'      => App\Http\Controllers\HelperController::class,
+        'Image' => Intervention\Image\Facades\Image::class
+
     ] ,
 
 ];

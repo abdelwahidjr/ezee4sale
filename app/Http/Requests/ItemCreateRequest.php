@@ -32,6 +32,8 @@ class ItemCreateRequest extends FormRequest
             'image'        => 'required|array|min:1' ,
             'image.*'      => 'required|mimes:png,jpg,jpeg|max:1000' ,
             'appear_on_home'             => 'boolean' ,
+            'image_size_w'  =>'numeric|max:2000'  ,
+            'image_size_h'  =>'numeric|max:2000'
         ];
     }
 

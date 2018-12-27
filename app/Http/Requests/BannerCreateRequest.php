@@ -29,7 +29,9 @@ class BannerCreateRequest extends FormRequest
             'categories.*'        => 'exists:categories,id',
             'sub_categories'        => 'array' ,
             'sub_categories.*'        => 'exists:sub_categories,id',
-            'appear_on_home'    => 'boolean'
+            'appear_on_home'    => 'boolean',
+            'image_size_w'  =>'numeric|max:2000'  ,
+            'image_size_h'  =>'numeric|max:2000'
         ];
     }
     public function messages()
