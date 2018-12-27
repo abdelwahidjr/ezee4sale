@@ -35,9 +35,9 @@ class BannerController extends Controller
                 ->encode($extension);
         else
             $image = File::get($request->image);
-        Storage::disk('public')->put('images/Banners/' . $filename . '.' . $extension , $image);
+        Storage::disk('public')->put('images/banners/' . $filename . '.' . $extension , $image);
         $banner->fill($request->all());
-        $banner->image = 'storage/images/Banners/' . $filename . "." . $extension;
+        $banner->image = 'storage/images/banners/' . $filename . "." . $extension;
         $banner->categories = $request->input('categories');
         $banner->save();
         return new ModelResource($banner);
@@ -74,10 +74,10 @@ class BannerController extends Controller
                 ->encode($extension);
         else
             $image = File::get($request->image);
-        Storage::disk('public')->put('images/Banners/' . $filename . '.' . $extension , $image);
+        Storage::disk('public')->put('images/banners/' . $filename . '.' . $extension , $image);
         $banner->update($request->all());
         $banner->categories = $request->input('categories');
-        $banner->image = 'storage/images/Banners/' . $filename . "." . $extension;
+        $banner->image = 'storage/images/banners/' . $filename . "." . $extension;
         $banner->save();
         return new ModelResource($banner);
     }
