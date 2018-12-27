@@ -1,0 +1,2606 @@
+{
+	"info": {
+		"_postman_id": "627bfc75-30be-4111-af43-eefea41a212b",
+		"name": "EZEE4SALE",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Auth",
+			"item": [
+				{
+					"name": "forgot password",
+					"request": {
+						"auth": {
+							"type": "oauth2",
+							"oauth2": [
+								{
+									"key": "accessToken",
+									"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiIsImp0aSI6ImM1N2YxYzQ4NzRkMGU0YWQ3NzhlNmNkMjdlNTgxYzkzYzY3ZTdiYmFkOTY5MjQ2ZjcwMjRhMzhiZjY2ODM5MGJjZjYwZGU5YjBhZDQwZTIzIn0.eyJhdWQiOiIyIiwianRpIjoiYzU3ZjFjNDg3NGQwZTRhZDc3OGU2Y2QyN2U1ODFjOTNjNjdlN2JiYWQ5NjkyNDZmNzAyNGEzOGJmNjY4MzkwYmNmNjBkZTliMGFkNDBlMjMiLCJpYXQiOjE1NDI5MDQ4ODgsIm5iZiI6MTU0MjkwNDg4OCwiZXhwIjoxNTQzNzY4ODg4LCJzdWIiOiIxIiwic2NvcGVzIjpbIioiXX0.Q0dP5ka3Fkc9xfkpWvpnTIGVcXIaIcX0nkAXJE6xIxNPQUxLSKlqm-fAOBAnpEZd3rhDvtYfWKDd_FiCudg4o81jiiHgPL8uotIQBPyD5WOKirZBBVyUoPLZGPFDEQ_FzNblFqUQV294D8TsxsUl8Xw7h7ybUHIA_vOLAcxzqQQZkyr7KdLRMNnOa8bdVYIj963fBkYNEdQmDPfVGk13CE8yL-hIxCu5JjtGgUgGiY4pjCeVr7MNssNPKiodQtNT3f7krDw7bvxQWCzQUO3xnOErSRAa11VYdg3ctgAVlWrL4x2nQ6RjPTp1FfILZx7xhCfJWckwCSaHk0YzB8oDVx_DgTV5YK0wwzFj3TDOmWgTWKpE5z-eLSiSAe-hLVLBR3ui-1mx-cZlUzhQNtvedATyImk0FZnxT2m51GxzonQT_YsCOvggXjne81y8anOVdk2HYg4VtyTObF9Eii5CKUmxRWgio9GScE65_k9w103KQ7T_s--T5X9qBkDWxk-lu_zTMC_6XQM4iDty-CoEs91DyPu4s8ytB3pz7juFMIewHPeCq8CEf9vcyAdlsBy2ecWg8ZAeDD5ac-WUlm7uSVAj5DLZTDETVMe6BODfCg0MKYc2Mp3whrQd6xAMgMbqZPDuXbFs4HP7RYEWRUGA9WAKMdbVxRF5hXYTG4--s_M",
+									"type": "string"
+								},
+								{
+									"key": "tokenType",
+									"value": "Bearer",
+									"type": "string"
+								},
+								{
+									"key": "addTokenTo",
+									"value": "header",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json"
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/x-www-form-urlencoded"
+							}
+						],
+						"body": {
+							"mode": "urlencoded",
+							"urlencoded": [
+								{
+									"key": "email",
+									"value": "karim.salah2048@gmail.com",
+									"type": "text"
+								},
+								{
+									"key": "password",
+									"value": "secret",
+									"type": "text",
+									"disabled": true
+								}
+							]
+						},
+						"url": {
+							"raw": "{{domain}}/api/auth/password/email",
+							"host": [
+								"{{domain}}"
+							],
+							"path": [
+								"api",
+								"auth",
+								"password",
+								"email"
+							]
+						},
+						"description": "user forget his password"
+					},
+					"response": []
+				},
+				{
+					"name": "reset password",
+					"request": {
+						"auth": {
+							"type": "oauth2",
+							"oauth2": [
+								{
+									"key": "accessToken",
+									"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiIsImp0aSI6ImM1N2YxYzQ4NzRkMGU0YWQ3NzhlNmNkMjdlNTgxYzkzYzY3ZTdiYmFkOTY5MjQ2ZjcwMjRhMzhiZjY2ODM5MGJjZjYwZGU5YjBhZDQwZTIzIn0.eyJhdWQiOiIyIiwianRpIjoiYzU3ZjFjNDg3NGQwZTRhZDc3OGU2Y2QyN2U1ODFjOTNjNjdlN2JiYWQ5NjkyNDZmNzAyNGEzOGJmNjY4MzkwYmNmNjBkZTliMGFkNDBlMjMiLCJpYXQiOjE1NDI5MDQ4ODgsIm5iZiI6MTU0MjkwNDg4OCwiZXhwIjoxNTQzNzY4ODg4LCJzdWIiOiIxIiwic2NvcGVzIjpbIioiXX0.Q0dP5ka3Fkc9xfkpWvpnTIGVcXIaIcX0nkAXJE6xIxNPQUxLSKlqm-fAOBAnpEZd3rhDvtYfWKDd_FiCudg4o81jiiHgPL8uotIQBPyD5WOKirZBBVyUoPLZGPFDEQ_FzNblFqUQV294D8TsxsUl8Xw7h7ybUHIA_vOLAcxzqQQZkyr7KdLRMNnOa8bdVYIj963fBkYNEdQmDPfVGk13CE8yL-hIxCu5JjtGgUgGiY4pjCeVr7MNssNPKiodQtNT3f7krDw7bvxQWCzQUO3xnOErSRAa11VYdg3ctgAVlWrL4x2nQ6RjPTp1FfILZx7xhCfJWckwCSaHk0YzB8oDVx_DgTV5YK0wwzFj3TDOmWgTWKpE5z-eLSiSAe-hLVLBR3ui-1mx-cZlUzhQNtvedATyImk0FZnxT2m51GxzonQT_YsCOvggXjne81y8anOVdk2HYg4VtyTObF9Eii5CKUmxRWgio9GScE65_k9w103KQ7T_s--T5X9qBkDWxk-lu_zTMC_6XQM4iDty-CoEs91DyPu4s8ytB3pz7juFMIewHPeCq8CEf9vcyAdlsBy2ecWg8ZAeDD5ac-WUlm7uSVAj5DLZTDETVMe6BODfCg0MKYc2Mp3whrQd6xAMgMbqZPDuXbFs4HP7RYEWRUGA9WAKMdbVxRF5hXYTG4--s_M",
+									"type": "string"
+								},
+								{
+									"key": "tokenType",
+									"value": "Bearer",
+									"type": "string"
+								},
+								{
+									"key": "addTokenTo",
+									"value": "header",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json"
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/x-www-form-urlencoded"
+							}
+						],
+						"body": {
+							"mode": "urlencoded",
+							"urlencoded": [
+								{
+									"key": "email",
+									"value": "karim.salah2048@gmail.com",
+									"type": "text"
+								},
+								{
+									"key": "token",
+									"value": "bf90ed06e79750c4b65fed365b7b24558a2b5789b823a8e048ac7ec0e5ccaa49",
+									"type": "text"
+								},
+								{
+									"key": "password",
+									"value": "secret",
+									"type": "text"
+								},
+								{
+									"key": "password_confirmation",
+									"value": "secret",
+									"type": "text"
+								},
+								{
+									"key": "",
+									"value": "secret",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "{{domain}}/api/auth/password/reset",
+							"host": [
+								"{{domain}}"
+							],
+							"path": [
+								"api",
+								"auth",
+								"password",
+								"reset"
+							]
+						},
+						"description": "user reset his password"
+					},
+					"response": []
+				},
+				{
+					"name": "change password",
+					"request": {
+						"auth": {
+							"type": "oauth2",
+							"oauth2": [
+								{
+									"key": "accessToken",
+									"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiIsImp0aSI6IjIzZDhmMzgzMjgyMjU4NjVjOWYyMGYyN2NhNmNhNzA4ZjFmNjNlNzc1MmE2Mjg5YWIxYjM5ZDRkMTc3NWI2NDYzM2M4MWQyOTRjY2Q5MTlkIn0.eyJhdWQiOiIyIiwianRpIjoiMjNkOGYzODMyODIyNTg2NWM5ZjIwZjI3Y2E2Y2E3MDhmMWY2M2U3NzUyYTYyODlhYjFiMzlkNGQxNzc1YjY0NjMzYzgxZDI5NGNjZDkxOWQiLCJpYXQiOjE1Mzk4NDMwOTMsIm5iZiI6MTUzOTg0MzA5MywiZXhwIjoxNTQwNzA3MDkzLCJzdWIiOiIxIiwic2NvcGVzIjpbIioiXX0.ovDEG_9v9OgXCDsHAPPFsPUFHOhfKEkMLqSKbmcojl36gUZAZ3feaJljvf7LNE0nXhuV5y2GoZp7YXaxgYj2Dehiu1ikt-qchvGNC22Nt7pR_um0is4lDXRN770wLHXYYSGWJmmr07rKywZIlRZjSVg98QarfleNYp0wPJ1S1-ZR2ivYeXWR7DVKfVyr6wH927_WnURfOmH4_LNPYM6jvPUAcQlkHm8Krxz25hdE4EDWeGTygDdp3vFwXcqCb3pmF8JMzYssWWrET4zjPjyfrICZMb3yxm5iWE8lY0pKdpmvDWThq8aH688vUnPS76yauXAmv7eMHSdrf5vomP0-4B9No-Mt8aW1NvJQoffsiH2silOAE_SX-ZyDWETMKDPqP2Mkpqv9ZS6etIT5ETxsAHOlR89mM_mhegpi_Wr6RtbvHy1nN1pD7dNsOsTOVyEB3K4VXpayJAaJorRZUOjOIUP-fGgOeinAzWM8z8UwBWNEQ67ZNCjFoikJuqg8EA-S86ocEkaAC99CAi7x3FEC7606Yp2iZ4XqSN2R4NuRpDrUeYQUaVq4789KpT1Z7ruvVYJSlNXRJEXeQFC2xF-YJGozTCUNlXtT5ak5efMBFTw3I14BrNfRhXls_nncC2mkgqSxs-wr7X1ifmWHKjJBSA7fLhkTE2t5Mp4MDUAEyuM",
+									"type": "string"
+								},
+								{
+									"key": "tokenType",
+									"value": "Bearer",
+									"type": "string"
+								},
+								{
+									"key": "addTokenTo",
+									"value": "header",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json"
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/x-www-form-urlencoded"
+							}
+						],
+						"body": {
+							"mode": "urlencoded",
+							"urlencoded": [
+								{
+									"key": "old_password",
+									"value": "secret",
+									"type": "text"
+								},
+								{
+									"key": "password",
+									"value": "secret",
+									"type": "text"
+								},
+								{
+									"key": "password_confirmation",
+									"value": "secret",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "{{domain}}/api/auth/change-password",
+							"host": [
+								"{{domain}}"
+							],
+							"path": [
+								"api",
+								"auth",
+								"change-password"
+							]
+						},
+						"description": "user change his password only"
+					},
+					"response": []
+				},
+				{
+					"name": "request personal access token",
+					"request": {
+						"auth": {
+							"type": "noauth"
+						},
+						"method": "POST",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json"
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/x-www-form-urlencoded"
+							}
+						],
+						"body": {
+							"mode": "urlencoded",
+							"urlencoded": [
+								{
+									"key": "grant_type",
+									"value": "password",
+									"type": "text"
+								},
+								{
+									"key": "client_id",
+									"value": "6",
+									"type": "text"
+								},
+								{
+									"key": "client_secret",
+									"value": "l5TkMUVkC28k3GkIhbx9htLVICgeMxlS1gl3VF7H",
+									"type": "text"
+								},
+								{
+									"key": "scope",
+									"value": "*",
+									"type": "text"
+								},
+								{
+									"key": "username",
+									"value": "admin@ezee4sale.com",
+									"type": "text"
+								},
+								{
+									"key": "password",
+									"value": "secret",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "{{domain}}/oauth/token",
+							"host": [
+								"{{domain}}"
+							],
+							"path": [
+								"oauth",
+								"token"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "activate account",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"url": {
+							"raw": "{{domain}}/api/auth/signup/activate/i9ghdCI",
+							"host": [
+								"{{domain}}"
+							],
+							"path": [
+								"api",
+								"auth",
+								"signup",
+								"activate",
+								"i9ghdCI"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "signup",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json"
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/x-www-form-urlencoded"
+							}
+						],
+						"body": {
+							"mode": "urlencoded",
+							"urlencoded": [
+								{
+									"key": "name",
+									"value": "local",
+									"type": "text"
+								},
+								{
+									"key": "email",
+									"value": "karim.salah2048@gmail.com",
+									"type": "text"
+								},
+								{
+									"key": "password",
+									"value": "123456789",
+									"type": "text"
+								},
+								{
+									"key": "password_confirmation",
+									"value": "123456789",
+									"type": "text"
+								},
+								{
+									"key": "phone",
+									"value": "12345671",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "{{domain}}/api/auth/signup",
+							"host": [
+								"{{domain}}"
+							],
+							"path": [
+								"api",
+								"auth",
+								"signup"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "login",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json"
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/x-www-form-urlencoded"
+							}
+						],
+						"body": {
+							"mode": "urlencoded",
+							"urlencoded": [
+								{
+									"key": "email",
+									"value": "karim.salah2048@gmail.com",
+									"type": "text"
+								},
+								{
+									"key": "phone",
+									"value": "12345679",
+									"type": "text",
+									"disabled": true
+								},
+								{
+									"key": "password",
+									"value": "00001111",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "{{domain}}/api/auth/login",
+							"host": [
+								"{{domain}}"
+							],
+							"path": [
+								"api",
+								"auth",
+								"login"
+							]
+						},
+						"description": "login with phone or email"
+					},
+					"response": []
+				},
+				{
+					"name": "logout",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"type": "text"
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/x-www-form-urlencoded",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"url": {
+							"raw": "{{domain}}/api/auth/logout",
+							"host": [
+								"{{domain}}"
+							],
+							"path": [
+								"api",
+								"auth",
+								"logout"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Admin",
+			"item": [
+				{
+					"name": "update commission",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "user_ids[]",
+									"value": "1",
+									"type": "text"
+								},
+								{
+									"key": "user_ids[]",
+									"value": "2",
+									"type": "text"
+								},
+								{
+									"key": "item_id",
+									"value": "1",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "{{domain}}/api/admin/administration/send_users_notifications",
+							"host": [
+								"{{domain}}"
+							],
+							"path": [
+								"api",
+								"admin",
+								"administration",
+								"send_users_notifications"
+							]
+						}
+					},
+					"response": []
+				}
+			],
+			"event": [
+				{
+					"listen": "prerequest",
+					"script": {
+						"id": "cd03afe9-ada9-4488-ac38-6ad21f688d31",
+						"type": "text/javascript",
+						"exec": [
+							""
+						]
+					}
+				},
+				{
+					"listen": "test",
+					"script": {
+						"id": "08e43145-1756-4d23-98c4-6f937bf7369a",
+						"type": "text/javascript",
+						"exec": [
+							""
+						]
+					}
+				}
+			]
+		},
+		{
+			"name": "Public",
+			"item": [
+				{
+					"name": "user",
+					"item": [
+						{
+							"name": "user - all",
+							"request": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "Accept",
+										"value": "application/json"
+									},
+									{
+										"key": "Content-Type",
+										"value": "application/json"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": ""
+								},
+								"url": {
+									"raw": "{{domain}}/api/public/user/all",
+									"host": [
+										"{{domain}}"
+									],
+									"path": [
+										"api",
+										"public",
+										"user",
+										"all"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "user - store",
+							"request": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Accept",
+										"value": "application/json"
+									},
+									{
+										"key": "Content-Type",
+										"name": "Content-Type",
+										"value": "application/x-www-form-urlencoded",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "formdata",
+									"formdata": [
+										{
+											"key": "name",
+											"value": " adsasd",
+											"type": "text"
+										},
+										{
+											"key": "email",
+											"value": "teaasas2d@mail.com",
+											"description": "unique",
+											"type": "text"
+										},
+										{
+											"key": "phone",
+											"value": " 011155544778",
+											"type": "text"
+										},
+										{
+											"key": "password",
+											"value": "00001111",
+											"type": "text"
+										},
+										{
+											"key": "password_confirmation",
+											"value": "00001111",
+											"type": "text"
+										}
+									]
+								},
+								"url": {
+									"raw": "{{domain}}/api/public/user",
+									"host": [
+										"{{domain}}"
+									],
+									"path": [
+										"api",
+										"public",
+										"user"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "user - show",
+							"request": {
+								"auth": {
+									"type": "oauth2",
+									"oauth2": [
+										{
+											"key": "accessToken",
+											"value": "{{token}}",
+											"type": "string"
+										},
+										{
+											"key": "tokenType",
+											"value": "Bearer",
+											"type": "string"
+										},
+										{
+											"key": "addTokenTo",
+											"value": "header",
+											"type": "string"
+										}
+									]
+								},
+								"method": "GET",
+								"header": [
+									{
+										"key": "Accept",
+										"value": "application/json"
+									},
+									{
+										"key": "Content-Type",
+										"value": "application/json"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": ""
+								},
+								"url": {
+									"raw": "{{domain}}/api/public/user/1",
+									"host": [
+										"{{domain}}"
+									],
+									"path": [
+										"api",
+										"public",
+										"user",
+										"1"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "user - notifications",
+							"request": {
+								"auth": {
+									"type": "oauth2",
+									"oauth2": [
+										{
+											"key": "accessToken",
+											"value": "{{token}}",
+											"type": "string"
+										},
+										{
+											"key": "tokenType",
+											"value": "Bearer",
+											"type": "string"
+										},
+										{
+											"key": "addTokenTo",
+											"value": "header",
+											"type": "string"
+										}
+									]
+								},
+								"method": "GET",
+								"header": [
+									{
+										"key": "Accept",
+										"value": "application/json"
+									},
+									{
+										"key": "Content-Type",
+										"value": "application/json"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": ""
+								},
+								"url": {
+									"raw": "{{domain}}/api/public/user/1/notifications",
+									"host": [
+										"{{domain}}"
+									],
+									"path": [
+										"api",
+										"public",
+										"user",
+										"1",
+										"notifications"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "user - update",
+							"request": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Accept",
+										"value": "application/json"
+									},
+									{
+										"key": "Content-Type",
+										"name": "Content-Type",
+										"value": "application/x-www-form-urlencoded",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "formdata",
+									"formdata": [
+										{
+											"key": "name",
+											"value": " adsasd",
+											"type": "text"
+										},
+										{
+											"key": "email",
+											"value": "teaasasd@mail.com",
+											"description": "unique",
+											"type": "text",
+											"disabled": true
+										},
+										{
+											"key": "phone",
+											"value": " 011155544778",
+											"type": "text"
+										},
+										{
+											"key": "password",
+											"value": "00001111",
+											"type": "text"
+										},
+										{
+											"key": "password_confirmation",
+											"value": "00001111",
+											"type": "text"
+										},
+										{
+											"key": "language",
+											"value": "en",
+											"type": "text"
+										},
+										{
+											"key": "toggle_music",
+											"value": "on",
+											"type": "text"
+										}
+									]
+								},
+								"url": {
+									"raw": "{{domain}}/api/public/user/3",
+									"host": [
+										"{{domain}}"
+									],
+									"path": [
+										"api",
+										"public",
+										"user",
+										"3"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "user - mark notification as read",
+							"request": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Accept",
+										"value": "application/json"
+									},
+									{
+										"key": "Content-Type",
+										"name": "Content-Type",
+										"type": "text",
+										"value": "application/x-www-form-urlencoded"
+									}
+								],
+								"body": {
+									"mode": "formdata",
+									"formdata": [
+										{
+											"key": "user_id",
+											"value": "1",
+											"type": "text"
+										},
+										{
+											"key": "notification_id",
+											"value": "12eea025-c9d2-4e03-8c20-51b1c2a338fb",
+											"type": "text"
+										}
+									]
+								},
+								"url": {
+									"raw": "{{domain}}/api/public/user/mark_notification_as_read",
+									"host": [
+										"{{domain}}"
+									],
+									"path": [
+										"api",
+										"public",
+										"user",
+										"mark_notification_as_read"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "user - delete",
+							"request": {
+								"method": "DELETE",
+								"header": [
+									{
+										"key": "Accept",
+										"value": "application/json"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": ""
+								},
+								"url": {
+									"raw": "{{domain}}/api/public/user/50",
+									"host": [
+										"{{domain}}"
+									],
+									"path": [
+										"api",
+										"public",
+										"user",
+										"50"
+									]
+								}
+							},
+							"response": []
+						}
+					],
+					"event": [
+						{
+							"listen": "prerequest",
+							"script": {
+								"id": "2ae91b09-6357-4462-8f0c-ccc7b25305e1",
+								"type": "text/javascript",
+								"exec": [
+									""
+								]
+							}
+						},
+						{
+							"listen": "test",
+							"script": {
+								"id": "dc850a31-78ea-41d6-a394-af6fda0af999",
+								"type": "text/javascript",
+								"exec": [
+									""
+								]
+							}
+						}
+					],
+					"_postman_isSubFolder": true
+				},
+				{
+					"name": "Item",
+					"item": [
+						{
+							"name": "item - all",
+							"request": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "Accept",
+										"value": "application/json"
+									},
+									{
+										"key": "Content-Type",
+										"value": "application/json"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": ""
+								},
+								"url": {
+									"raw": "{{domain}}/api/public/item/all",
+									"host": [
+										"{{domain}}"
+									],
+									"path": [
+										"api",
+										"public",
+										"item",
+										"all"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "item - user_ads",
+							"request": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "Accept",
+										"value": "application/json"
+									},
+									{
+										"key": "Content-Type",
+										"value": "application/json"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": ""
+								},
+								"url": {
+									"raw": "{{domain}}/api/public/item/user_ads/1",
+									"host": [
+										"{{domain}}"
+									],
+									"path": [
+										"api",
+										"public",
+										"item",
+										"user_ads",
+										"1"
+									]
+								},
+								"description": "get user ads by user id"
+							},
+							"response": []
+						},
+						{
+							"name": "item - store",
+							"request": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Accept",
+										"value": "application/json"
+									},
+									{
+										"key": "Content-Type",
+										"name": "Content-Type",
+										"value": "application/x-www-form-urlencoded",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "formdata",
+									"formdata": [
+										{
+											"key": "title",
+											"value": " adsasd",
+											"type": "text"
+										},
+										{
+											"key": "type",
+											"value": "ad",
+											"description": "ad, market",
+											"type": "text"
+										},
+										{
+											"key": "user_id",
+											"value": "1",
+											"type": "text"
+										},
+										{
+											"key": "whats_app",
+											"value": " 011155544778",
+											"type": "text"
+										},
+										{
+											"key": "place",
+											"value": "asdd",
+											"type": "text"
+										},
+										{
+											"key": "phone",
+											"value": " 011155544778",
+											"type": "text"
+										},
+										{
+											"key": "category_id",
+											"value": "27",
+											"type": "text"
+										},
+										{
+											"key": "sub_category_id",
+											"value": "47",
+											"type": "text"
+										},
+										{
+											"key": "state",
+											"value": "pinned",
+											"description": "pinned, featured, none",
+											"type": "text"
+										},
+										{
+											"key": "image[]",
+											"type": "file",
+											"src": ""
+										},
+										{
+											"key": "image[]",
+											"type": "file",
+											"src": "",
+											"disabled": true
+										},
+										{
+											"key": "image_size_w",
+											"value": "700",
+											"description": "optional",
+											"type": "text"
+										},
+										{
+											"key": "image_size_h",
+											"value": "500",
+											"description": "optional",
+											"type": "text"
+										}
+									]
+								},
+								"url": {
+									"raw": "{{domain}}/api/public/item",
+									"host": [
+										"{{domain}}"
+									],
+									"path": [
+										"api",
+										"public",
+										"item"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "item - update",
+							"request": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Accept",
+										"value": "application/json"
+									},
+									{
+										"key": "Content-Type",
+										"name": "Content-Type",
+										"type": "text",
+										"value": "application/x-www-form-urlencoded"
+									}
+								],
+								"body": {
+									"mode": "formdata",
+									"formdata": [
+										{
+											"key": "title",
+											"value": " adsasd",
+											"type": "text"
+										},
+										{
+											"key": "type",
+											"value": "ad",
+											"description": "ad, market",
+											"type": "text"
+										},
+										{
+											"key": "user_id",
+											"value": "1",
+											"type": "text"
+										},
+										{
+											"key": "whats_app",
+											"value": " 011155544778",
+											"type": "text"
+										},
+										{
+											"key": "place",
+											"value": "asdd",
+											"type": "text"
+										},
+										{
+											"key": "phone",
+											"value": " 011155544778",
+											"type": "text"
+										},
+										{
+											"key": "category_id",
+											"value": "1",
+											"type": "text"
+										},
+										{
+											"key": "sub_category_id",
+											"value": "5",
+											"type": "text"
+										},
+										{
+											"key": "state",
+											"value": "pinned",
+											"description": "pinned, featured, none",
+											"type": "text"
+										},
+										{
+											"key": "image[]",
+											"type": "file",
+											"src": ""
+										},
+										{
+											"key": "image_size_h",
+											"value": "300",
+											"description": "optional",
+											"type": "text"
+										},
+										{
+											"key": "image_size_w",
+											"value": "300",
+											"description": "optional",
+											"type": "text"
+										}
+									]
+								},
+								"url": {
+									"raw": "{{domain}}/api/public/item/1",
+									"host": [
+										"{{domain}}"
+									],
+									"path": [
+										"api",
+										"public",
+										"item",
+										"1"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "item - show",
+							"request": {
+								"auth": {
+									"type": "oauth2",
+									"oauth2": [
+										{
+											"key": "accessToken",
+											"value": "{{token}}",
+											"type": "string"
+										},
+										{
+											"key": "tokenType",
+											"value": "Bearer",
+											"type": "string"
+										},
+										{
+											"key": "addTokenTo",
+											"value": "header",
+											"type": "string"
+										}
+									]
+								},
+								"method": "GET",
+								"header": [
+									{
+										"key": "Accept",
+										"value": "application/json"
+									},
+									{
+										"key": "Content-Type",
+										"value": "application/json"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": ""
+								},
+								"url": {
+									"raw": "{{domain}}/api/public/item/3",
+									"host": [
+										"{{domain}}"
+									],
+									"path": [
+										"api",
+										"public",
+										"item",
+										"3"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "item - delete",
+							"request": {
+								"method": "DELETE",
+								"header": [
+									{
+										"key": "Accept",
+										"value": "application/json"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": ""
+								},
+								"url": {
+									"raw": "{{domain}}/api/public/item/50",
+									"host": [
+										"{{domain}}"
+									],
+									"path": [
+										"api",
+										"public",
+										"item",
+										"50"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "item - get by category",
+							"request": {
+								"method": "GET",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": ""
+								},
+								"url": {
+									"raw": "{{domain}}/api/public/item/category/2/sub_category/9",
+									"host": [
+										"{{domain}}"
+									],
+									"path": [
+										"api",
+										"public",
+										"item",
+										"category",
+										"2",
+										"sub_category",
+										"9"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "item - get ad by category",
+							"request": {
+								"method": "GET",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": ""
+								},
+								"url": {
+									"raw": "{{domain}}/api/public/item/ad/category/27/sub_category/47",
+									"host": [
+										"{{domain}}"
+									],
+									"path": [
+										"api",
+										"public",
+										"item",
+										"ad",
+										"category",
+										"27",
+										"sub_category",
+										"47"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "item - get market by category",
+							"request": {
+								"method": "GET",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": ""
+								},
+								"url": {
+									"raw": "{{domain}}/api/public/item/market/category/27/sub_category/47",
+									"host": [
+										"{{domain}}"
+									],
+									"path": [
+										"api",
+										"public",
+										"item",
+										"market",
+										"category",
+										"27",
+										"sub_category",
+										"47"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "item - reshare",
+							"request": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Accept",
+										"value": "application/json",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "formdata",
+									"formdata": [
+										{
+											"key": "item_id",
+											"value": "7",
+											"type": "text"
+										},
+										{
+											"key": "user_id",
+											"value": "38",
+											"type": "text"
+										}
+									]
+								},
+								"url": {
+									"raw": "{{domain}}/api/public/item/reshare",
+									"host": [
+										"{{domain}}"
+									],
+									"path": [
+										"api",
+										"public",
+										"item",
+										"reshare"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "item - viewcount",
+							"request": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Accept",
+										"value": "application/json",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "formdata",
+									"formdata": [
+										{
+											"key": "item_id",
+											"value": "2",
+											"type": "text"
+										}
+									]
+								},
+								"url": {
+									"raw": "{{domain}}/api/public/item/views",
+									"host": [
+										"{{domain}}"
+									],
+									"path": [
+										"api",
+										"public",
+										"item",
+										"views"
+									]
+								}
+							},
+							"response": []
+						}
+					],
+					"_postman_isSubFolder": true
+				},
+				{
+					"name": "coupon",
+					"item": [
+						{
+							"name": "coupon - all",
+							"request": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "Accept",
+										"value": "application/json"
+									},
+									{
+										"key": "Content-Type",
+										"value": "application/json"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": ""
+								},
+								"url": {
+									"raw": "{{domain}}/api/public/coupon/all",
+									"host": [
+										"{{domain}}"
+									],
+									"path": [
+										"api",
+										"public",
+										"coupon",
+										"all"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "coupon - store",
+							"request": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Accept",
+										"value": "application/json"
+									},
+									{
+										"key": "Content-Type",
+										"name": "Content-Type",
+										"value": "application/x-www-form-urlencoded",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "formdata",
+									"formdata": [
+										{
+											"key": "title",
+											"value": " adsasd",
+											"type": "text"
+										},
+										{
+											"key": "price",
+											"value": "2",
+											"type": "text"
+										},
+										{
+											"key": "user_id",
+											"value": "1",
+											"type": "text"
+										}
+									]
+								},
+								"url": {
+									"raw": "{{domain}}/api/public/coupon",
+									"host": [
+										"{{domain}}"
+									],
+									"path": [
+										"api",
+										"public",
+										"coupon"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "coupon - generate coupons",
+							"request": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Accept",
+										"value": "application/json"
+									},
+									{
+										"key": "Content-Type",
+										"name": "Content-Type",
+										"type": "text",
+										"value": "application/x-www-form-urlencoded"
+									}
+								],
+								"body": {
+									"mode": "formdata",
+									"formdata": [
+										{
+											"key": "title",
+											"value": " coupon",
+											"type": "text"
+										},
+										{
+											"key": "price",
+											"value": "100",
+											"type": "text"
+										},
+										{
+											"key": "quantity",
+											"value": "10000",
+											"type": "text"
+										}
+									]
+								},
+								"url": {
+									"raw": "{{domain}}/api/public/coupon/generate_coupons",
+									"host": [
+										"{{domain}}"
+									],
+									"path": [
+										"api",
+										"public",
+										"coupon",
+										"generate_coupons"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "coupon - input user code",
+							"request": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Accept",
+										"value": "application/json"
+									},
+									{
+										"key": "Content-Type",
+										"name": "Content-Type",
+										"type": "text",
+										"value": "application/x-www-form-urlencoded"
+									}
+								],
+								"body": {
+									"mode": "formdata",
+									"formdata": [
+										{
+											"key": "code",
+											"value": "5c10df2b1174f",
+											"type": "text"
+										},
+										{
+											"key": "user_id",
+											"value": "1",
+											"type": "text"
+										}
+									]
+								},
+								"url": {
+									"raw": "{{domain}}/api/public/coupon/input_user_code",
+									"host": [
+										"{{domain}}"
+									],
+									"path": [
+										"api",
+										"public",
+										"coupon",
+										"input_user_code"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "coupon - update",
+							"request": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Accept",
+										"value": "application/json"
+									},
+									{
+										"key": "Content-Type",
+										"name": "Content-Type",
+										"type": "text",
+										"value": "application/x-www-form-urlencoded"
+									}
+								],
+								"body": {
+									"mode": "formdata",
+									"formdata": [
+										{
+											"key": "title",
+											"value": " adsasd",
+											"type": "text"
+										},
+										{
+											"key": "price",
+											"value": "2555",
+											"type": "text"
+										},
+										{
+											"key": "user_id",
+											"value": "1",
+											"type": "text"
+										}
+									]
+								},
+								"url": {
+									"raw": "{{domain}}/api/public/coupon/1",
+									"host": [
+										"{{domain}}"
+									],
+									"path": [
+										"api",
+										"public",
+										"coupon",
+										"1"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "coupon - show",
+							"request": {
+								"auth": {
+									"type": "oauth2",
+									"oauth2": [
+										{
+											"key": "accessToken",
+											"value": "{{token}}",
+											"type": "string"
+										},
+										{
+											"key": "tokenType",
+											"value": "Bearer",
+											"type": "string"
+										},
+										{
+											"key": "addTokenTo",
+											"value": "header",
+											"type": "string"
+										}
+									]
+								},
+								"method": "GET",
+								"header": [
+									{
+										"key": "Accept",
+										"value": "application/json"
+									},
+									{
+										"key": "Content-Type",
+										"value": "application/json"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": ""
+								},
+								"url": {
+									"raw": "{{domain}}/api/public/coupon/3",
+									"host": [
+										"{{domain}}"
+									],
+									"path": [
+										"api",
+										"public",
+										"coupon",
+										"3"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "coupon - delete",
+							"request": {
+								"method": "DELETE",
+								"header": [
+									{
+										"key": "Accept",
+										"value": "application/json"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": ""
+								},
+								"url": {
+									"raw": "{{domain}}/api/public/coupon/50",
+									"host": [
+										"{{domain}}"
+									],
+									"path": [
+										"api",
+										"public",
+										"coupon",
+										"50"
+									]
+								}
+							},
+							"response": []
+						}
+					],
+					"_postman_isSubFolder": true
+				},
+				{
+					"name": "settings",
+					"item": [
+						{
+							"name": "settings - show",
+							"request": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "Accept",
+										"value": "application/json"
+									},
+									{
+										"key": "Content-Type",
+										"value": "application/json"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": ""
+								},
+								"url": {
+									"raw": "{{domain}}/api/public/settings",
+									"host": [
+										"{{domain}}"
+									],
+									"path": [
+										"api",
+										"public",
+										"settings"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "settings - update",
+							"request": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Accept",
+										"value": "application/json"
+									},
+									{
+										"key": "Content-Type",
+										"name": "Content-Type",
+										"value": "application/x-www-form-urlencoded",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "formdata",
+									"formdata": [
+										{
+											"key": "file[]",
+											"type": "file",
+											"src": ""
+										},
+										{
+											"key": "file[]",
+											"type": "file",
+											"src": ""
+										},
+										{
+											"key": "whats_app[]",
+											"value": "213123",
+											"type": "text"
+										},
+										{
+											"key": "whats_app[]",
+											"value": "2334556",
+											"type": "text"
+										},
+										{
+											"key": "phone[]",
+											"value": "2312323",
+											"type": "text"
+										},
+										{
+											"key": "phone[]",
+											"value": "5566",
+											"type": "text"
+										},
+										{
+											"key": "email[]",
+											"value": "kdsa@g.com",
+											"type": "text"
+										},
+										{
+											"key": "email[]",
+											"value": "ks@g.com",
+											"type": "text"
+										},
+										{
+											"key": "audio_file_state",
+											"value": "on",
+											"description": "on, off\n",
+											"type": "text"
+										}
+									]
+								},
+								"url": {
+									"raw": "{{domain}}/api/public/settings",
+									"host": [
+										"{{domain}}"
+									],
+									"path": [
+										"api",
+										"public",
+										"settings"
+									]
+								}
+							},
+							"response": []
+						}
+					],
+					"_postman_isSubFolder": true
+				},
+				{
+					"name": "Banner",
+					"item": [
+						{
+							"name": "banner - all",
+							"request": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "Accept",
+										"value": "application/json",
+										"type": "text"
+									},
+									{
+										"key": "",
+										"value": "",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": ""
+								},
+								"url": {
+									"raw": "{{domain}}/api/public/banner/all",
+									"host": [
+										"{{domain}}"
+									],
+									"path": [
+										"api",
+										"public",
+										"banner",
+										"all"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "banner - store",
+							"request": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Accept",
+										"value": "application/json",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "formdata",
+									"formdata": [
+										{
+											"key": "phone",
+											"value": "0111515",
+											"type": "text"
+										},
+										{
+											"key": "whats_app",
+											"value": "0154545",
+											"type": "text"
+										},
+										{
+											"key": "email",
+											"value": "amr@amr.amr",
+											"type": "text"
+										},
+										{
+											"key": "image",
+											"type": "file",
+											"src": ""
+										},
+										{
+											"key": "type",
+											"value": "ad",
+											"type": "text"
+										},
+										{
+											"key": "appear_on_home",
+											"value": "1",
+											"type": "text"
+										},
+										{
+											"key": "categories[]",
+											"value": "1",
+											"type": "text"
+										},
+										{
+											"key": "categories[]",
+											"value": "2",
+											"type": "text"
+										},
+										{
+											"key": "image_size_w",
+											"value": "200",
+											"description": "optional",
+											"type": "text"
+										},
+										{
+											"key": "image_size_h",
+											"value": "400",
+											"description": "optional",
+											"type": "text"
+										}
+									]
+								},
+								"url": {
+									"raw": "{{domain}}/api/public/banner",
+									"host": [
+										"{{domain}}"
+									],
+									"path": [
+										"api",
+										"public",
+										"banner"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "banner - update",
+							"request": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Accept",
+										"value": "application/json",
+										"type": "text"
+									},
+									{
+										"key": "Content-Type",
+										"value": "application/json",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "formdata",
+									"formdata": [
+										{
+											"key": "id",
+											"value": "56",
+											"type": "text"
+										},
+										{
+											"key": "phone",
+											"value": "111111111",
+											"type": "text"
+										},
+										{
+											"key": "whats_app",
+											"value": "11111111111",
+											"type": "text"
+										},
+										{
+											"key": "email",
+											"value": "edited@e.e",
+											"type": "text"
+										},
+										{
+											"key": "image",
+											"type": "file",
+											"src": ""
+										},
+										{
+											"key": "type",
+											"value": "market",
+											"type": "text"
+										},
+										{
+											"key": "categories[]",
+											"value": "4",
+											"type": "text"
+										},
+										{
+											"key": "appear_on_home",
+											"value": "1",
+											"type": "text"
+										}
+									]
+								},
+								"url": {
+									"raw": "{{domain}}/api/public/banner/50",
+									"host": [
+										"{{domain}}"
+									],
+									"path": [
+										"api",
+										"public",
+										"banner",
+										"50"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "banner - delete",
+							"request": {
+								"method": "DELETE",
+								"header": [
+									{
+										"key": "Accept",
+										"value": "application/json",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": ""
+								},
+								"url": {
+									"raw": "{{domain}}/api/public/banner/1",
+									"host": [
+										"{{domain}}"
+									],
+									"path": [
+										"api",
+										"public",
+										"banner",
+										"1"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "banner - show",
+							"request": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "Accept",
+										"value": "application/json",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": ""
+								},
+								"url": {
+									"raw": "{{domain}}/api/public/banner/2",
+									"host": [
+										"{{domain}}"
+									],
+									"path": [
+										"api",
+										"public",
+										"banner",
+										"2"
+									]
+								}
+							},
+							"response": []
+						}
+					],
+					"event": [
+						{
+							"listen": "prerequest",
+							"script": {
+								"id": "e74cb8cb-ddc9-480d-9f47-89a393bd25ef",
+								"type": "text/javascript",
+								"exec": [
+									""
+								]
+							}
+						},
+						{
+							"listen": "test",
+							"script": {
+								"id": "35584900-68ef-40fe-af9a-74037cfd58f3",
+								"type": "text/javascript",
+								"exec": [
+									""
+								]
+							}
+						}
+					],
+					"_postman_isSubFolder": true
+				},
+				{
+					"name": "Category",
+					"item": [
+						{
+							"name": "category - all",
+							"request": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "Accept",
+										"value": "application/json",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": ""
+								},
+								"url": {
+									"raw": "{{domain}}/api/public/category/all",
+									"host": [
+										"{{domain}}"
+									],
+									"path": [
+										"api",
+										"public",
+										"category",
+										"all"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "category - store",
+							"request": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Accept",
+										"type": "text",
+										"value": "application/json"
+									}
+								],
+								"body": {
+									"mode": "formdata",
+									"formdata": [
+										{
+											"key": "name",
+											"value": "test",
+											"type": "text"
+										},
+										{
+											"key": "type",
+											"value": "ad",
+											"type": "text"
+										},
+										{
+											"key": "price",
+											"value": "11",
+											"type": "text"
+										},
+										{
+											"key": "ordering",
+											"value": "1",
+											"type": "text"
+										},
+										{
+											"key": "adding_time",
+											"value": "23",
+											"type": "text"
+										}
+									]
+								},
+								"url": {
+									"raw": "{{domain}}/api/public/category",
+									"host": [
+										"{{domain}}"
+									],
+									"path": [
+										"api",
+										"public",
+										"category"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "category - update",
+							"request": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Accept",
+										"value": "application/json",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "formdata",
+									"formdata": [
+										{
+											"key": "name",
+											"value": "upd",
+											"type": "text"
+										},
+										{
+											"key": "type",
+											"value": "ad",
+											"type": "text"
+										},
+										{
+											"key": "price",
+											"value": "23",
+											"type": "text"
+										},
+										{
+											"key": "ordering",
+											"value": "12",
+											"type": "text"
+										},
+										{
+											"key": "adding_time",
+											"value": "1111",
+											"type": "text"
+										}
+									]
+								},
+								"url": {
+									"raw": "{{domain}}/api/public/category/50",
+									"host": [
+										"{{domain}}"
+									],
+									"path": [
+										"api",
+										"public",
+										"category",
+										"50"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "category - delete",
+							"request": {
+								"method": "DELETE",
+								"header": [
+									{
+										"key": "Accept",
+										"type": "text",
+										"value": "application/json"
+									}
+								],
+								"body": {
+									"mode": "formdata",
+									"formdata": [
+										{
+											"key": "name",
+											"value": "",
+											"type": "text"
+										},
+										{
+											"key": "type",
+											"value": "",
+											"type": "text"
+										},
+										{
+											"key": "price",
+											"value": "",
+											"type": "text"
+										},
+										{
+											"key": "ordering",
+											"value": "",
+											"type": "text"
+										},
+										{
+											"key": "adding_time",
+											"value": "",
+											"type": "text"
+										}
+									]
+								},
+								"url": {
+									"raw": "{{domain}}/api/public/category/50",
+									"host": [
+										"{{domain}}"
+									],
+									"path": [
+										"api",
+										"public",
+										"category",
+										"50"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "category - show",
+							"request": {
+								"method": "GET",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": ""
+								},
+								"url": {
+									"raw": "{{domain}}/api/public/category/5",
+									"host": [
+										"{{domain}}"
+									],
+									"path": [
+										"api",
+										"public",
+										"category",
+										"5"
+									]
+								}
+							},
+							"response": []
+						}
+					],
+					"_postman_isSubFolder": true
+				},
+				{
+					"name": "SubCategory",
+					"item": [
+						{
+							"name": "subcategory - add",
+							"request": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Accept",
+										"type": "text",
+										"value": "application/json"
+									}
+								],
+								"body": {
+									"mode": "formdata",
+									"formdata": [
+										{
+											"key": "name",
+											"value": "test",
+											"type": "text"
+										},
+										{
+											"key": "type",
+											"value": "ad",
+											"type": "text"
+										},
+										{
+											"key": "ordering",
+											"value": "1",
+											"type": "text"
+										},
+										{
+											"key": "category_id",
+											"value": "23",
+											"type": "text"
+										}
+									]
+								},
+								"url": {
+									"raw": "{{domain}}/api/public/subcategory",
+									"host": [
+										"{{domain}}"
+									],
+									"path": [
+										"api",
+										"public",
+										"subcategory"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "subcategory - update",
+							"request": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Accept",
+										"value": "application/json",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "formdata",
+									"formdata": [
+										{
+											"key": "name",
+											"value": "upd244",
+											"type": "text"
+										},
+										{
+											"key": "type",
+											"value": "ad",
+											"type": "text"
+										},
+										{
+											"key": "ordering",
+											"value": "2",
+											"type": "text"
+										},
+										{
+											"key": "category_id",
+											"value": "21",
+											"type": "text"
+										}
+									]
+								},
+								"url": {
+									"raw": "{{domain}}/api/public/subcategory/50",
+									"host": [
+										"{{domain}}"
+									],
+									"path": [
+										"api",
+										"public",
+										"subcategory",
+										"50"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "subcategory - show",
+							"request": {
+								"method": "GET",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": ""
+								},
+								"url": {
+									"raw": "{{domain}}/api/public/subcategory/4",
+									"host": [
+										"{{domain}}"
+									],
+									"path": [
+										"api",
+										"public",
+										"subcategory",
+										"4"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "subcategory - delete",
+							"request": {
+								"method": "DELETE",
+								"header": [
+									{
+										"key": "Accept",
+										"value": "application/json",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "formdata",
+									"formdata": [
+										{
+											"key": "name",
+											"value": "",
+											"type": "text"
+										},
+										{
+											"key": "type",
+											"value": "",
+											"type": "text"
+										},
+										{
+											"key": "price",
+											"value": "",
+											"type": "text"
+										},
+										{
+											"key": "ordering",
+											"value": "",
+											"type": "text"
+										},
+										{
+											"key": "adding_time",
+											"value": "",
+											"type": "text"
+										}
+									]
+								},
+								"url": {
+									"raw": "{{domain}}/api/public/subcategory/5",
+									"host": [
+										"{{domain}}"
+									],
+									"path": [
+										"api",
+										"public",
+										"subcategory",
+										"5"
+									]
+								}
+							},
+							"response": []
+						}
+					],
+					"_postman_isSubFolder": true
+				}
+			]
+		}
+	],
+	"auth": {
+		"type": "oauth2",
+		"oauth2": [
+			{
+				"key": "accessToken",
+				"value": "{{token}}",
+				"type": "string"
+			},
+			{
+				"key": "addTokenTo",
+				"value": "header",
+				"type": "string"
+			}
+		]
+	},
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"id": "7144b218-98f1-43fa-bf0a-b8cea18a613c",
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"id": "3b36a95d-498e-46f6-8c10-78030cf76410",
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		}
+	]
+}
