@@ -110,7 +110,8 @@ class UserAuthController extends Controller
         }
 
         $credentials['password'] = $request->password;
-        $credentials['active']   = 1;
+        // this will force the activation first before logging in
+//        $credentials['active']   = 1;
 
         if ( ! Auth::attempt($credentials))
         {
