@@ -17,6 +17,7 @@ class CreateSubCategoriesTable extends Migration
             $table->increments('id');
             $table->integer('category_id')->unsigned();
             $table->string('name');
+            $table->string('ar_name');
             $table->enum('type',['ad','market']);
             $table->integer('ordering');
             $table->timestamps();

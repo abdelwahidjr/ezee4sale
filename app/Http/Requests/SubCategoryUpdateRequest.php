@@ -27,6 +27,7 @@ class SubCategoryUpdateRequest extends FormRequest
     {
         return [
             'name'             => 'required|string|max:350',
+            'ar_name'       =>'string',
             'category_id'         => 'required|exists:categories,id',
             'ordering'             => 'required|numeric',
             'type'              => 'required|in:' . implode(',' , $this->type) ,
