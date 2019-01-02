@@ -27,6 +27,7 @@ class CategoryUpdateRequest extends FormRequest
     {
         return [
             'name'             => 'required|string|max:350',
+            'ar_name'           => 'string',
             'price'         => 'required|numeric',
             'ordering'             => 'required|numeric',
             'deprecated_time'             => 'required|numeric',
