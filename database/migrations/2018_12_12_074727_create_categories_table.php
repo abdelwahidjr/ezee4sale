@@ -16,7 +16,7 @@ class CreateCategoriesTable extends Migration
         Schema::create('categories', function (Blueprint $table) {
             $table->increments('id');
             $table->string('name');
-            $table->string('ar_name');
+            $table->string('ar_name')->default('عربي');
             $table->enum('type',['ad','market']);
             $table->double('price');
             $table->integer('ordering');
